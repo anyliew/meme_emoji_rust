@@ -20,7 +20,7 @@
 
 ## 表情包扩展仓库 meme_emoji_rust
 
-🚀 基于 [meme-generator-rs](https://github.com/MemeCrafters/meme-generator-rs) 插件做的扩展表情包仓库
+🚀 基于 [meme-generator-rs](https://github.com/MemeCrafters/meme-generator-rs) 做的扩展表情包仓库
 
 *✨* 为你的聊天机器人添加更多趣味表情生成！
 
