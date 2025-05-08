@@ -1,6 +1,7 @@
 <div align="center">
 <img src="https://upload-bbs.miyoushe.com/upload/2025/05/08/365152535/0a154b759159adf6beb79d1582528fae_4082085489423633137.png" width=200 />
 
+# meme_emoji_rust
 
 <p align="center">
   <img src="https://img.shields.io/github/license/MemeCrafters/meme-generator-rs">
@@ -15,6 +16,7 @@
   </a>
 </p>
 
+</div>
 
 ## 表情包扩展仓库 meme_emoji_rust
 
