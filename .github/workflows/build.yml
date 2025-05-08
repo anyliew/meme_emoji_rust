@@ -6,11 +6,11 @@ on:
       - main
     paths:
       - "Cargo.toml"
-      - "meme_emoji_rust/**"
+      - "src/**"
   pull_request_target:
     paths:
       - "Cargo.toml"
-      - "meme_emoji_rust/**"
+      - "src/**"
   workflow_dispatch:
 
 permissions:
@@ -45,7 +45,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: "meme-generator-contrib-${{ matrix.platform.label }}"
+          name: "meme_emoji_rust_${{ matrix.platform.label }}"
           path: |
             target/${{ matrix.platform.target }}/release/*.dll
             target/${{ matrix.platform.target }}/release/*.dylib
