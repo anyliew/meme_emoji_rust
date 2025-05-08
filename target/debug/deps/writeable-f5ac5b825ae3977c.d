@@ -1,0 +1,11 @@
+D:\meme\meme_emoji_rust\target\debug\deps\libwriteable-f5ac5b825ae3977c.rmeta: C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\writeable-0.5.5\src\lib.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\writeable-0.5.5\src\cmp.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\writeable-0.5.5\src\impls.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\writeable-0.5.5\src\ops.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\writeable-0.5.5\src\parts_write_adapter.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\writeable-0.5.5\src\testing.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\writeable-0.5.5\src\try_writeable.rs
+
+D:\meme\meme_emoji_rust\target\debug\deps\writeable-f5ac5b825ae3977c.d: C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\writeable-0.5.5\src\lib.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\writeable-0.5.5\src\cmp.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\writeable-0.5.5\src\impls.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\writeable-0.5.5\src\ops.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\writeable-0.5.5\src\parts_write_adapter.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\writeable-0.5.5\src\testing.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\writeable-0.5.5\src\try_writeable.rs
+
+C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\writeable-0.5.5\src\lib.rs:
+C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\writeable-0.5.5\src\cmp.rs:
+C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\writeable-0.5.5\src\impls.rs:
+C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\writeable-0.5.5\src\ops.rs:
+C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\writeable-0.5.5\src\parts_write_adapter.rs:
+C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\writeable-0.5.5\src\testing.rs:
+C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\writeable-0.5.5\src\try_writeable.rs:

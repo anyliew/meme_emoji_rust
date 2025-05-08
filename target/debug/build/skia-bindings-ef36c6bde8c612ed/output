@@ -1,0 +1,22 @@
+cargo:rerun-if-env-changed=DOCS_RS
+cargo:rerun-if-env-changed=SKIA_DEBUG
+cargo:rerun-if-env-changed=SKIA_SOURCE_DIR
+cargo:rerun-if-env-changed=FORCE_SKIA_BUILD
+cargo:rerun-if-env-changed=FORCE_SKIA_BINARIES_DOWNLOAD
+TRYING TO DOWNLOAD AND INSTALL SKIA BINARIES: 0.80.0/ed89d22ebcd9b49b7f14-x86_64-pc-windows-msvc-textlayout
+cargo:rerun-if-env-changed=SKIA_BINARIES_URL
+  FROM: https://github.com/rust-skia/skia-binaries/releases/download/0.80.0/skia-binaries-ed89d22ebcd9b49b7f14-x86_64-pc-windows-msvc-textlayout.tar.gz
+UNPACKING ARCHIVE INTO: D:\meme\meme_emoji_rust\target\debug\build\skia-bindings-ef36c6bde8c612ed\out\skia
+DOWNLOAD AND INSTALL SUCCEEDED
+cargo:rustc-link-search=D:\meme\meme_emoji_rust\target\debug\build\skia-bindings-ef36c6bde8c612ed\out\skia
+cargo:rustc-link-lib=skparagraph
+cargo:rustc-link-lib=skshaper
+cargo:rustc-link-lib=skunicode_core
+cargo:rustc-link-lib=skunicode_icu
+cargo:rustc-link-lib=skia
+cargo:rustc-link-lib=skia-bindings
+cargo:rustc-link-lib=usp10
+cargo:rustc-link-lib=ole32
+cargo:rustc-link-lib=user32
+cargo:rustc-link-lib=gdi32
+cargo:rustc-link-lib=fontsub

@@ -1,0 +1,17 @@
+D:\meme\meme_emoji_rust\target\debug\deps\libmeme_generator_utils-fd89192bee14eddb.rmeta: C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\lib.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\api.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\builder.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\canvas.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\config.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\decoder.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\encoder.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\image.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\text.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\tools.rs
+
+D:\meme\meme_emoji_rust\target\debug\deps\meme_generator_utils-fd89192bee14eddb.d: C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\lib.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\api.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\builder.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\canvas.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\config.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\decoder.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\encoder.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\image.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\text.rs C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\tools.rs
+
+C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\lib.rs:
+C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\api.rs:
+C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\builder.rs:
+C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\canvas.rs:
+C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\config.rs:
+C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\decoder.rs:
+C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\encoder.rs:
+C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\image.rs:
+C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\text.rs:
+C:\Users\liu\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\meme_generator_utils-0.0.7\src\tools.rs:
+
+# env-dep:MEME_FONTS_DIR
+# env-dep:MEME_IMAGES_DIR
