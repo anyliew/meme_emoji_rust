@@ -11,7 +11,7 @@ use meme_generator_utils::{
 use crate::{options::NoOptions, register_meme};
 
 fn deer_help(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
-    let frame = load_image("deer_help/0.png")?;
+    let frame = load_image("deer_help/0.jpg")?;
 
     let func = |images: Vec<Image>| {
         let mut surface = frame.to_surface();

@@ -12,14 +12,18 @@ use crate::{options::NoOptions, register_meme};
 
 fn mihoyo_genshin_impact_players(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let frame = load_image("mihoyo_genshin_impact_players/0.png")?;
-
     let func = |images: Vec<Image>| {
         let mut surface = new_surface(frame.dimensions());
         let canvas = surface.canvas();
         canvas.clear(Color::WHITE);
+        
+        // 先绘制背景（frame）
+        canvas.draw_image(&frame, (0, 0), None);
+        
+        // 最后绘制输入图像（覆盖在frame之上）
         let image = images[0].resize_fit((220, 220), Fit::Cover);
         canvas.draw_image(&image, (385, 120), None);
-        canvas.draw_image(&frame, (0, 0), None);
+        
         Ok(surface.image_snapshot())
     };
 
