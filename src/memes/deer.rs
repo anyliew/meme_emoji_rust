@@ -11,13 +11,13 @@ use meme_generator_utils::{
 use crate::{options::NoOptions, register_meme};
 
 fn deer_se(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
-    let frame = load_image("deer_se/0.png")?;
+    let frame = load_image("deer/0.png")?;
 
     let func = |images: Vec<Image>| {
         let mut surface = new_surface(frame.dimensions());
         let canvas = surface.canvas();
         canvas.clear(Color::WHITE);
-        let image = images[0].resize_fit((275, 275), Fit::Cover);
+        let image = images[0].circle().resize_fit((275, 275), Fit::Cover);
         canvas.draw_image(&image, (360, 40), None);
         canvas.draw_image(&frame, (0, 0), None);
         Ok(surface.image_snapshot())

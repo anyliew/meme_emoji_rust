@@ -16,8 +16,8 @@ fn deer_help(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Ve
     let func = |images: Vec<Image>| {
         let mut surface = frame.to_surface();
         let canvas = surface.canvas();
-        let image1 = images[0].resize_fit((180, 180), Fit::Cover);
-        let image2 = images[1].resize_fit((180, 180), Fit::Cover);
+        let image1 = images[0].circle().resize_fit((180, 180), Fit::Cover);
+        let image2 = images[1].circle().resize_fit((180, 180), Fit::Cover);
         canvas.draw_image(&image1, (300, 190), None);
         canvas.draw_image(&image2, (605, 200), None);
         Ok(surface.image_snapshot())

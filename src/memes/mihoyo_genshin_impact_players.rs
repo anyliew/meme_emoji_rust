@@ -21,7 +21,7 @@ fn mihoyo_genshin_impact_players(images: Vec<InputImage>, _: Vec<String>, _: NoO
         canvas.draw_image(&frame, (0, 0), None);
         
         // 最后绘制输入图像（覆盖在frame之上）
-        let image = images[0].resize_fit((220, 220), Fit::Cover);
+        let image = images[0].circle().resize_fit((220, 220), Fit::Cover);
         canvas.draw_image(&image, (385, 120), None);
         
         Ok(surface.image_snapshot())
