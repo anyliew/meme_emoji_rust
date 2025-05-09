@@ -37,13 +37,63 @@
 
 
 ## 已实现表情示例
-### 简略清单
-- 杯子系列 `[夏日琉璃子、琉璃子、圣修女、纪念版圣修女、限定版圣修女、对魔忍、偶像心跳、杰士邦、空气玩法]`
-- OP `[名人名言大伟哥嘲笑指]`
-- 芙芙指 `[芙宁娜嘲笑]`
-- 表情三连 `[三连 内容]`
 ### 参考预览图：
 <img src="./picture/Phone.png" alt="image-20250312190444844" style="zoom:50%;" />
+
+### 表情包清单
+
+```
+1. aircraft_cup_air_play (空气玩法)
+2. aircraft_cup_cleaning_liquid (清洗液)
+3. aircraft_cup_commemorative_edition_saint_sister (纪念版圣修女)
+4. aircraft_cup_hoshino_alice (拉拉队偶像)
+5. aircraft_cup_idol_heartbeat (偶像心跳)
+6. aircraft_cup_jissbon (杰士邦)
+7. aircraft_cup_limited_edition_saint_sister (纯洁臀)
+8. aircraft_cup_liuli_zi (琉璃子)
+9. aircraft_cup_pure_buttocks (纯洁臀)
+10. aircraft_cup_saint_sister (圣修女)
+11. aircraft_cup_selena (魔女之森)
+12. aircraft_cup_summer_liuli_zi (夏日琉璃子)
+13. aircraft_cup_taimanin_asgi (对魔忍)
+14. all_the_days (一生一世)
+15. atri_like (亚托莉喜欢)
+16. begged_me (求我)
+17. congyu_dislike (丛雨讨厌)
+18. deer_help (帮鹿/帮🦌)
+19. deer_se (🦌/鹿)
+20. dinosaur_head (恐龙头)
+21. dog_face (🐶)
+22. fbi_photo (fbi/FBI)
+23. hitachi_mako_together (和她在一起)
+24. ice_tea_head (冰红茶)
+25. ikun_durian_head (榴莲坤头)
+26. ikun_head (小黑子)
+27. kfc_head (KFC/kfc)
+28. kun_like (坤坤喜欢)
+29. kurogames_mp (鸣批/鸣P/鸣p/鸣潮玩家/鸣潮男)
+30. kurogames_songlun (松伦哥指/潮批)
+31. mahiro_fuck (真寻中指/中指/🖕🏻)
+32. mi_monkey (米猴/🐒/🐵)
+33. mihoyo_funina_death_penalty (死刑)
+34. mihoyo_funina_round_head (芙芙圆形头像)
+35. mihoyo_funina_square_head (芙芙方形头像)
+36. mihoyo_genshin_impact_op (OP/op/Op/oP)
+37. mihoyo_genshin_impact_players (原批/原神玩家)
+38. miss_in_my_sleep (睡梦中想念)
+39. murasame_blackboard (丛雨黑板)
+40. murasame_husband (丛雨老公)
+41. murasame_like (丛雨喜欢)
+42. s_ninja (S忍/s忍)
+43. spend_christmas (一起圣诞)
+44. swimsuit_group_photo (泳衣合影)
+45. together_two (在一起)
+46. torture_yourself (折磨自己)
+47. xinxi_news (新喜报)
+48. youzi_kitchen (柚子厨)
+49. youzi_question_mark (震惊柚子厨)
+```
+
 
 
 ## 配置信息
