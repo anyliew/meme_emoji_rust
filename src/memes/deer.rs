@@ -17,9 +17,16 @@ fn deer_se(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<
         let mut surface = new_surface(frame.dimensions());
         let canvas = surface.canvas();
         canvas.clear(Color::WHITE);
-        let image = images[0].circle().resize_fit((275, 275), Fit::Cover);
-        canvas.draw_image(&image, (360, 40), None);
+
+        // 1. 先绘制相框（底层）
         canvas.draw_image(&frame, (0, 0), None);
+
+        // 2. 再绘制用户头像（顶层）
+        let image = images[0]
+            .circle()
+            .resize_fit((275, 275), Fit::Cover);
+        canvas.draw_image(&image, (360, 40), None);
+
         Ok(surface.image_snapshot())
     };
 
