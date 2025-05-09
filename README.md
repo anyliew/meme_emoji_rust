@@ -24,6 +24,12 @@
 
 *✨* 为你的聊天机器人添加更多趣味表情生成！
 
+> [!WARNING]
+>
+> 刚学的 rust 入门，编译完成测试检查发现很多问题，暂时不推荐用，需要“亿”点点时间优化解决！
+
+
+
 
 ## 特性
 
@@ -92,7 +98,62 @@
 47. xinxi_news (新喜报)
 48. youzi_kitchen (柚子厨)
 49. youzi_question_mark (震惊柚子厨)
+
 ```
+
+## 优化计划
+
+| 表情名字                                                     | Bug/改进计划                                                 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 1. aircraft_cup_air_play  (空气玩法)                         | 字体改成白色，头像向左旋转15度                               |
+| 2.  aircraft_cup_cleaning_liquid (清洗液)                    | 头像需要位置于最底层，无文字                                 |
+| 3.  aircraft_cup_commemorative_edition_saint_sister (纪念版圣修女) | 头像需要位置于最底层                                         |
+| 4. aircraft_cup_hoshino_alice  (拉拉队偶像)                  | 头像需要位置于最底层，无文字     新增啦啦队偶像名字          |
+| 5. aircraft_cup_idol_heartbeat  (偶像心跳)                   | 头像需要位置于最底层                                         |
+| 6. aircraft_cup_jissbon (杰士邦)                             | 无问题                                                       |
+| 7.  aircraft_cup_limited_edition_saint_sister (纯洁臀)       | 头像突出偏移；和限定版圣修女重复；应该改为圣修女             |
+| 8. aircraft_cup_liuli_zi (琉璃子)                            | 头像需要位置于最底层                                         |
+| 9. aircraft_cup_pure_buttocks  (纯洁臀)                      | 头像突出偏移；和限定版圣修女重复；移除圣修女                 |
+| 10. aircraft_cup_saint_sister  (圣修女)                      | 头像需要位置于最底层                                         |
+| 11. aircraft_cup_selena (魔女之森)                           | 头像需要位置于最底层                                         |
+| 12.  aircraft_cup_summer_liuli_zi (夏日琉璃子)               | 头像需要位置于最底层                                         |
+| 13. aircraft_cup_taimanin_asgi  (对魔忍)                     | 头像需要位置于最底层                                         |
+| 14. all_the_days (一生一世)                                  | 头像需要改成圆形     单独艾特一个人无法触发     引用图片无法触发 |
+| 15. atri_like (亚托莉喜欢)                                   | 素材需要更新优化                                             |
+| 16. begged_me (求我)                                         | 头像需要改成圆形，旋转15°                                    |
+| 17. congyu_dislike (丛雨讨厌)                                | 素材需要更新优化                                             |
+| 18. deer_help (帮鹿/帮🦌)                                     | 素材需要更新优化；头像旋转角度                               |
+| 19. deer_se (🦌/鹿)                                           | 素材需要更新优化；延申脖子                                   |
+| 20. dinosaur_head (恐龙头)                                   | 头像需要位置于最底层；头像改成方形                           |
+| 21. dog_face (🐶)                                             | 增加关键词狗                                                 |
+| 22. fbi_photo (fbi/FBI)                                      | 反应慢；需要看控制台日志输出定位问题                         |
+| 23. hitachi_mako_together  (和她在一起)                      | 无问题                                                       |
+| 24. ice_tea_head (冰红茶)                                    | 头像需要位置于最顶层；头像需要改成圆形                       |
+| 25. ikun_durian_head (榴莲坤头)                              | 无问题                                                       |
+| 26. ikun_head (小黑子)                                       | 无问题                                                       |
+| 27. kfc_head (KFC/kfc)                                       | 素材重做；头像需要改成圆形；头像坐标重定                     |
+| 28. kun_like (坤坤喜欢)                                      | 无问题                                                       |
+| 29. kurogames_mp  (鸣批/鸣P/鸣p/鸣潮玩家/鸣潮男)             | 头像需要位置于最顶层；头像需要改成圆形，旋转15°              |
+| 30. kurogames_songlun  (松伦哥指/潮批)                       | 头像需要位置于最顶层；头像需要改成圆形；增加关键词“松伦指”   |
+| 31. mahiro_fuck (真寻中指/中指/🖕🏻)                           | 头像需要改成圆形                                             |
+| 32. mi_monkey (米猴/🐒/🐵)                                     | 头像需要位置于最顶层；头像需要改成圆形                       |
+| 33.  mihoyo_funina_death_penalty (死刑)                      | 头像需要位置于最顶层；头像需要改成圆形                       |
+| 34. mihoyo_funina_round_head  (芙芙圆形头像)                 | 头像需要改成圆形；增加关键词“芙宁娜圆形头像”                 |
+| 35. mihoyo_funina_square_head  (芙芙方形头像)                | 无问题                                                       |
+| 36. mihoyo_genshin_impact_op  (OP/op/Op/oP)                  | 头像需要位置于最顶层；头像需要改成圆形                       |
+| 37.  mihoyo_genshin_impact_players (原批/原神玩家)           | 无问题                                                       |
+| 38. miss_in_my_sleep (睡梦中想念)                            | 头像需要位置于最顶层；头像需要改成圆形                       |
+| 39. murasame_blackboard (丛雨黑板)                           | 增加引用字体文件                                             |
+| 40. murasame_husband (丛雨老公)                              | 头像需要位置于最顶层；头像需要改成圆形                       |
+| 41. murasame_like (丛雨喜欢)                                 | 素材优化                                                     |
+| 42. s_ninja (S忍/s忍)                                        | 素材优化                                                     |
+| 43. spend_christmas (一起圣诞)                               | 头像需要位置于最底层                                         |
+| 44. swimsuit_group_photo  (泳衣合影)                         | 头像需要改成圆形                                             |
+| 45. together_two (在一起)                                    | 缺少图片资源：together_two/0.png                             |
+| 46. torture_yourself (折磨自己)                              | 头像1要改到最底层；头像2改为圆形头像     改关键词和添加文字  |
+| 47. xinxi_news (新喜报)                                      | 无问题；增加引用字体文件                                     |
+| 48. youzi_kitchen (柚子厨)                                   | 增加引用字体文件                                             |
+| 49. youzi_question_mark  (震惊柚子厨)                        | 字体改成黑色                                                 |
 
 
 
