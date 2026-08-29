@@ -34,7 +34,7 @@ fn kurogames_chisa_creative_pioneer(images: Vec<InputImage>, _: Vec<String>, _: 
         encoder.add_frame(surface.image_snapshot(), 0.07)?;
     }
     
-    Ok(encoder.finish()?)
+    encoder.finish()
 }
 
 register_meme! {

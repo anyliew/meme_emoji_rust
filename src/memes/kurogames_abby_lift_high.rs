@@ -60,7 +60,7 @@ fn kurogames_abby_lift_high(images: Vec<InputImage>, _: Vec<String>, _: NoOption
     }
     
     // 完成GIF编码并返回字节数据
-    Ok(encoder.finish()?)
+    encoder.finish()
 }
 
 // 注册表情包插件

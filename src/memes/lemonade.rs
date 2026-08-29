@@ -32,7 +32,7 @@ fn lemonade(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec
         encoder.add_frame(surface.image_snapshot(), 0.04)?;
     }
     
-    Ok(encoder.finish()?)
+    encoder.finish()
 }
 
 register_meme! {

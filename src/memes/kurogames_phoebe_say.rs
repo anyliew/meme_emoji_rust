@@ -39,7 +39,7 @@ fn kurogames_phoebe_say(
         None => rand::rng().random_range(1..=13),
     };
 
-    let frame = load_image(&format!("kurogames_phoebe_say/{}.png", num))?;
+    let frame = load_image(format!("kurogames_phoebe_say/{}.png", num))?;
 
     let rects = [
         IRect::from_ltrb(15, 29, 954, 387),

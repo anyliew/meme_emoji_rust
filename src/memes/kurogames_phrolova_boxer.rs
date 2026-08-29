@@ -37,7 +37,7 @@ fn kurogames_phrolova_boxer(images: Vec<InputImage>, _: Vec<String>, _: NoOption
         encoder.add_frame(surface.image_snapshot(), 0.1)?;
     }
     
-    Ok(encoder.finish()?)
+    encoder.finish()
 }
 
 register_meme! {

@@ -43,7 +43,7 @@ fn kurogames_roccia_holdsign(
         IRect::from_ltrb(339, 611, 717, 891)    // 图片2的坐标
     ];
     
-    let frame = load_image(&format!("kurogames_roccia_holdsign/{}.jpg", img_index))?;
+    let frame = load_image(format!("kurogames_roccia_holdsign/{}.jpg", img_index))?;
     let mut surface = frame.to_surface();
     let canvas = surface.canvas();
     

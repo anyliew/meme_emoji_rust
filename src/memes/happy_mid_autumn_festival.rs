@@ -60,7 +60,7 @@ fn happy_mid_autumn_festival(images: Vec<InputImage>, _: Vec<String>, _: NoOptio
     }
     
     // 完成GIF编码并返回字节数据
-    Ok(encoder.finish()?)
+    encoder.finish()
 }
 
 // 注册表情包插件

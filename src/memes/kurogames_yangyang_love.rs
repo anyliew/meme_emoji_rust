@@ -35,7 +35,7 @@ fn kurogames_yangyang_love(images: Vec<InputImage>, _: Vec<String>, _: NoOptions
         encoder.add_frame(surface.image_snapshot(), 0.1)?;
     }
     
-    Ok(encoder.finish()?)
+    encoder.finish()
 }
 
 register_meme! {

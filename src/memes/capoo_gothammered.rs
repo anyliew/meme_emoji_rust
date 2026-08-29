@@ -34,7 +34,7 @@ fn capoo_gothammered(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> R
         encoder.add_frame(surface.image_snapshot(), 0.05)?;
     }
     
-    Ok(encoder.finish()?)
+    encoder.finish()
 }
 
 register_meme! {

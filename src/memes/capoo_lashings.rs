@@ -36,7 +36,7 @@ fn capoo_lashings(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Resu
         encoder.add_frame(surface.image_snapshot(), 0.02)?;
     }
     
-    Ok(encoder.finish()?)
+    encoder.finish()
 }
 
 register_meme! {

@@ -17,7 +17,7 @@ fn family_know(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<
     
     let name = &images[0].name;
     
-    let text = format!("{name}");
+    let text = name.to_string();
 
     let func = |images: Vec<Image>| {
         let mut surface = frame.to_surface();

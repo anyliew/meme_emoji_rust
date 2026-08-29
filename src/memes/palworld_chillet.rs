@@ -77,7 +77,7 @@ fn palworld_chillet(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Re
     }
     
     // 完成GIF编码并返回字节数据
-    Ok(encoder.finish()?)
+    encoder.finish()
 }
 
 // 注册表情包插件

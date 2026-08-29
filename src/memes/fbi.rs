@@ -14,7 +14,7 @@ use crate::{options::NoOptions, register_meme};
 
 fn fbi(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let name = &images[0].name;
-    let text = format!("{name}");
+    let text = name.to_string();
     let frame = load_image("fbi/0.png")?;
     let mut surface = frame.to_surface();
     let canvas = surface.canvas();

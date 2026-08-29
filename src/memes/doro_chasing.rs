@@ -34,7 +34,7 @@ fn doro_chasing(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result
         encoder.add_frame(surface.image_snapshot(), 0.07)?;
     }
     
-    Ok(encoder.finish()?)
+    encoder.finish()
 }
 
 register_meme! {
