@@ -10,36 +10,38 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_paint, new_surface},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
-fn yuzu_soft_ticket(
+fn yuzu_soft_shocked(
     images: Vec<InputImage>,
     texts: Vec<String>,
     _: NoOptions,
 ) -> Result<Vec<u8>, Error> {
-    let name = &images[0].name;
-    let text = if let Some(text) = texts.first() {
-        text
+    let name = if !texts.is_empty() {
+        texts[0].clone()
+    } else if !images[0].name.is_empty() {
+        images[0].name.clone()
     } else {
-        &name.clone()
+        "她".to_string()
     };
+    let text = format!("{name},你是柚...柚子厨?!");
+    let frame = load_image("yuzu_soft_shocked/0.png")?;
+
     let func = |images: Vec<Image>| {
-        let frame = load_image("yuzu_soft_ticket/0.png")?;
-        let user_head = images[0].resize_exact((300, 300));
         let mut surface = new_surface(frame.dimensions());
         let canvas = surface.canvas();
         canvas.clear(Color::WHITE);
-        canvas.draw_image(&user_head, (72, 330), None);
+        let img = images[0].circle().resize_exact((144, 144));
+        canvas.draw_image(&img, (0, 423), None);
         canvas.draw_image(&frame, (0, 0), None);
         canvas.draw_text_area_auto_font_size(
-            IRect::new(485, 544, 625, 583),
-            text,
-            10.0,
-            100.0,
+            IRect::from_ltrb(144, 423, 1080, 567),
+            &text,
+            20.0,
+            180.0,
             text_params!(
-                font_families = &["FZShaoEr-M11S"],
-                paint = new_paint(Color::BLACK),
-                text_align = TextAlign::Center,
+                text_align = TextAlign::Left,
+                paint = new_paint(Color::from_rgb(0, 0, 0)),
             ),
         )?;
         Ok(surface.image_snapshot())
@@ -49,13 +51,14 @@ fn yuzu_soft_ticket(
 }
 
 register_meme!(
-    "yuzu_soft_ticket",
-    yuzu_soft_ticket,
+    "yuzu_soft_shocked",
+    yuzu_soft_shocked,
     min_images = 1,
     max_images = 1,
     min_texts = 0,
     max_texts = 1,
-    keywords = &["准考证"],
-    date_created = local_date(2025, 6, 7),
-    date_modified = local_date(2025, 6, 7),
+    keywords = &["震惊柚子厨"],
+    tags = MemeTags::yuzu_soft(),
+    date_created = local_date(2024, 7, 26),
+    date_modified = local_date(2026, 4, 12),
 );

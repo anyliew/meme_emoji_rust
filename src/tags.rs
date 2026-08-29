@@ -77,6 +77,7 @@ meme_tags!(
     verina = (["维里奈"], wuthering_waves),
     phoebe = (["菲比"], wuthering_waves),
     carlotta = (["珂莱塔"], wuthering_waves),
+    changli = (["长离"], wuthering_waves),
     zhezhi = (["折枝"], wuthering_waves),
     lingyang = (["凌阳"], wuthering_waves),
     mortefi = (["莫特斐"], wuthering_waves),
@@ -142,6 +143,7 @@ meme_tags!(
     mako = (["常陆茉子", "茉子", "常陸茉子"], yuzu_soft),
     // 其他
     atri = (["亚托莉", "ATRI", "萝卜子"]),
+    natsume_anan = (["夏目安安"]),
     capoo = (["猫猫虫", "咖波"]),
     kirby = (["星之卡比"]),
     maimai = (["舞萌"]),
