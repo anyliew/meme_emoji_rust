@@ -294,7 +294,10 @@ jobs:
           TAG="${{ needs.generate_version.outputs.tag }}"
           REPO="${{ github.repository }}"
 
+          # 获取自动生成的 body
           ORIGINAL_BODY=$(gh release view "$TAG" --repo "$REPO" --json body -q .body)
+
+          # 替换标题为中文
           MODIFIED_BODY=$(echo "$ORIGINAL_BODY" | sed 's/^## What'\''s Changed$/## 变更内容/')
 
           if [ "$MODIFIED_BODY" = "$ORIGINAL_BODY" ]; then
@@ -303,8 +306,12 @@ jobs:
             echo "✅ 已将标题替换为中文"
           fi
 
+          # 读取附录并组合
           APPENDIX=$(cat /tmp/appendix.txt)
           FINAL_BODY="${MODIFIED_BODY}${APPENDIX}"
 
-          gh release edit "$TAG" --repo "$REPO" --body "$FINAL_BODY"
+          # 将最终内容写入临时文件，用 --notes-file 更新（避免 --body 参数不识别）
+          echo "$FINAL_BODY" > /tmp/final_body.txt
+          gh release edit "$TAG" --repo "$REPO" --notes-file /tmp/final_body.txt
+
           echo "✅ Release body 更新完成"
