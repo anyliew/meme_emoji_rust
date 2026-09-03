@@ -41,16 +41,11 @@ jobs:
       - name: Generate build version with metadata
         id: version
         run: |
-          # 获取提交次数用于构建号
           BUILD_NUMBER=$(git rev-list --count HEAD)
           CARGO_VERSION="${{ steps.cargo_version.outputs.cargo_version }}"
-          
-          # 使用 +build. 作为元数据 (符合 SemVer 规范)
           FULL_VERSION="${CARGO_VERSION}+build.${BUILD_NUMBER}"
-          
           echo "version=$FULL_VERSION" >> $GITHUB_OUTPUT
           echo "tag=v${FULL_VERSION}" >> $GITHUB_OUTPUT
-          
           echo "📦 Cargo.toml version: $CARGO_VERSION"
           echo "🔢 Git commit count: $BUILD_NUMBER"
           echo "✨ Generated version: $FULL_VERSION"
@@ -103,7 +98,6 @@ jobs:
           cd target/${{ matrix.platform.target }}/release/
           for file in *.${{ matrix.platform.ext }}; do
             if [ -f "$file" ]; then
-              # 移除 lib 前缀，使用连字符风格
               new_name="meme-emoji-${{ matrix.platform.label }}.${file##*.}"
               mv "$file" "$new_name"
               echo "Renamed to: $new_name"
@@ -150,7 +144,6 @@ jobs:
           cd target/${{ matrix.platform.target }}/release/
           for file in *.${{ matrix.platform.ext }}; do
             if [ -f "$file" ]; then
-              # 移除 lib 前缀，使用连字符风格
               new_name="meme-emoji-${{ matrix.platform.label }}.${file##*.}"
               mv "$file" "$new_name"
               echo "Renamed to: $new_name"
@@ -192,7 +185,6 @@ jobs:
           cd target/${{ matrix.platform.target }}/release/
           for file in *.${{ matrix.platform.ext }}; do
             if [ -f "$file" ]; then
-              # 移除 lib 前缀，使用连字符风格
               new_name="meme-emoji-${{ matrix.platform.label }}.${file##*.}"
               mv "$file" "$new_name"
               echo "Renamed to: $new_name"
@@ -209,30 +201,26 @@ jobs:
     name: Create Release
     needs: [generate_version, build, build_linux, build_android]
     runs-on: ubuntu-latest
-    # 允许 push 到 main 或手动触发时创建 Release
     if: |
       (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
       github.event_name == 'workflow_dispatch'
-    
     permissions:
       contents: write
-    
+
     steps:
       - name: Download all artifacts
         uses: actions/download-artifact@v4
         with:
           path: artifacts
-          
+
       - name: List all downloaded files
         run: |
           echo "📂 Downloaded artifacts:"
           find artifacts -type f -name "*" | sort
 
-      # 安装 Rust 工具链（用于获取版本信息）
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable
 
-      # 生成自定义附录（Rust 版本等信息）
       - name: Generate custom appendix
         id: custom
         run: |
@@ -273,7 +261,6 @@ jobs:
           \`\`\`
           EOF
           )
-          # 将附录内容保存为输出，供后续使用
           echo "appendix<<EOF" >> $GITHUB_OUTPUT
           echo "$APPENDIX" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
@@ -284,7 +271,6 @@ jobs:
           echo "   Version: ${{ needs.generate_version.outputs.version }}"
           echo "   Tag: ${{ needs.generate_version.outputs.tag }}"
 
-      # 第一步：创建 Release，使用自动生成的 Notes（不传 body）
       - name: Create Release (auto-generated notes)
         id: create_release
         uses: softprops/action-gh-release@v1
@@ -294,7 +280,6 @@ jobs:
           draft: false
           prerelease: false
           generate_release_notes: true
-          # 不提供 body，让 GitHub 自动生成
           files: |
             artifacts/**/meme-emoji-windows-x86_64.*
             artifacts/**/meme-emoji-macos-x86_64.*
@@ -303,31 +288,27 @@ jobs:
             artifacts/**/meme-emoji-linux-aarch64.*
             artifacts/**/meme-emoji-android-aarch64.*
 
-      # 第二步：获取自动生成的 body，替换标题并追加内容，然后更新 Release
       - name: Update Release with custom body (Chinese title + Rust info)
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           TAG="${{ needs.generate_version.outputs.tag }}"
-          # 获取当前 Release 的 body（自动生成的内容）
-          ORIGINAL_BODY=$(gh release view "$TAG" --json body -q .body)
+          REPO="${{ github.repository }}"
+          # 获取自动生成的 body
+          ORIGINAL_BODY=$(gh release view "$TAG" --repo "$REPO" --json body -q .body)
           
-          # 将 "## What's Changed" 替换为 "## 变更内容"
-          # 使用 sed 进行替换，同时处理可能的双引号（' 需要转义）
+          # 替换标题为中文
           MODIFIED_BODY=$(echo "$ORIGINAL_BODY" | sed 's/^## What'\''s Changed$/## 变更内容/')
           
-          # 如果替换失败（比如没有匹配到），仍保留原内容
           if [ "$MODIFIED_BODY" = "$ORIGINAL_BODY" ]; then
             echo "⚠️ 未找到 '## What's Changed'，保持原标题"
           else
             echo "✅ 已将标题替换为中文"
           fi
           
-          # 拼接自定义附录（来自上一步）
           APPENDIX="${{ steps.custom.outputs.appendix }}"
           FINAL_BODY="${MODIFIED_BODY}${APPENDIX}"
           
-          # 更新 Release body
-          gh release edit "$TAG" --body "$FINAL_BODY"
+          gh release edit "$TAG" --repo "$REPO" --body "$FINAL_BODY"
           
           echo "✅ Release body 更新完成"
