@@ -1,5 +1,4 @@
-<div align="center">
-<img src="./docs/picture/logo.png" width=200 />
+![meme-emoji](https://socialify.git.ci/anyliew/meme-emoji/image?description=1&forks=1&issues=1&language=1&logo=https%3A%2F%2Fgithub.com%2Fanyliew%2Fmeme-emoji%2Fraw%2Fmain%2Fdocs%2Fpicture%2Flogo.png&name=1&owner=1&pulls=1&stargazers=1&theme=Light)
 
 # meme-emoji
 
@@ -10,8 +9,6 @@
   <a href="https://crates.io/crates/meme_generator">
     <img src="https://img.shields.io/crates/v/meme_generator">
     <img src="https://badgen.net/pypi/v/meme-generator-rs" alt="pypi">
-  <a href="https://qm.qq.com/q/KZFZGdWmyG">
-    <img src="https://img.shields.io/badge/QQ%E7%BE%A4-660451080-orange" alt="qq group">
 </p>
 </div>
 
@@ -72,20 +69,33 @@
 单个表情有问题反馈请附带日志和截图
 答复受限网络没那么快及时处理
 
-### 🐧QQ Group
-
-* [进群注意事项](https://github.com/anyliew/meme_emoji/wiki/qq_group)
-
-<a href="https://qm.qq.com/q/KZFZGdWmyG">
-  <img src="./docs/picture/qq_group.jpg" />
-</a>
-
 
 ## 🥳 投稿
 
 > 🚧欢迎投稿高清素材，看到一些有趣的素材图片会制作成表情更新到本仓库！
 >
 > 通过issues中的模板 “投稿素材” 进行投稿，如果能Pr则更加完美，实在是泰裤辣~
+
+## 贡献者 ✨
+
+感谢这些了不起的人 ([emoji-key](https://allcontributors.org/emoji-key/#natural-language-processing)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="50%"><a href="https://github.com/balh55y"><img src="https://avatars.githubusercontent.com/balh55y?s=100" width="100px;" alt="balh55y"/><br /><sub><b>balh55y</b></sub></a><br /><a href="https://github.com/anyliew/meme-emoji/commits?author=balh55y" title="Code">💻</a></td>
+      <td align="center" valign="top" width="50%"><a href="https://github.com/mmmpipi"><img src="https://avatars.githubusercontent.com/mmmpipi?s=100" width="100px;" alt="mmmpipi"/><br /><sub><b>mmmpipi</b></sub></a><br /><a href="https://github.com/anyliew/meme-emoji/commits?author=mmmpipi" title="Code">💻</a></td>
+    </tr>
+  </tbody>
+</table>
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+本项目遵循 [all-contributors](https://github.com/all-contributors/all-contributors) 规范。
 
 ## 🔗 相关链接
 
