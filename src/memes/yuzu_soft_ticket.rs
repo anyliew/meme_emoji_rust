@@ -34,7 +34,7 @@ fn yuzu_soft_ticket(
         canvas.draw_text_area_auto_font_size(
             IRect::new(485, 544, 625, 583),
             text,
-            30.0,
+            10.0,
             100.0,
             text_params!(
                 font_families = &["FZShaoEr-M11S"],

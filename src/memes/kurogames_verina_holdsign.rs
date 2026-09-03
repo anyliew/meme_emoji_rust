@@ -20,7 +20,7 @@ fn kurogames_verina_holdsign(
 ) -> Result<Vec<u8>, Error> {
     let text = if !texts.is_empty() { &texts[0] } else { DEFAULT_TEXT };
 
-    let frame = load_image(format!("kurogames_verina_holdsign/0.png"))?;
+    let frame = load_image("kurogames_verina_holdsign/0.png".to_string())?;
 
     let mut surface = frame.to_surface();
     let canvas = surface.canvas();

@@ -34,7 +34,7 @@ fn doro_do(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<
         encoder.add_frame(surface.image_snapshot(), 0.05)?;
     }
     
-    Ok(encoder.finish()?)
+    encoder.finish()
 }
 
 register_meme! {

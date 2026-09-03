@@ -10,13 +10,13 @@ repository = "https://github.com/anyliew/meme-emoji"
 edition = "2024"
 
 [lib]
-crate-type = ["cdylib"]
+crate-type = ["cdylib", "rlib"]
 
 [dependencies]
 inventory = "0.3"
 serde = "1.0"
 skia-safe = { version = "0.93", features = ["textlayout"] }
-rand = "0.10"
+rand = "0.10.2"
 
 meme_generator_core = "0.0.5"
 meme_generator_utils = "0.0.9"

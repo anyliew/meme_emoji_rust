@@ -82,7 +82,7 @@ fn mihoyo_sangonomiya_kokomi_love(images: Vec<InputImage>, _: Vec<String>, _: No
     }
     
     // 完成GIF编码并返回字节数据
-    Ok(encoder.finish()?)
+    encoder.finish()
 }
 
 // 注册表情包插件

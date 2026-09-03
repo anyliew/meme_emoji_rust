@@ -63,7 +63,7 @@ fn palworld_chillet_god_wealth(images: Vec<InputImage>, _: Vec<String>, _: NoOpt
     }
     
     // 完成GIF编码并返回字节数据
-    Ok(encoder.finish()?)
+    encoder.finish()
 }
 
 // 注册表情包插件

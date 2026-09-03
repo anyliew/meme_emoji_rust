@@ -33,10 +33,10 @@ fn kurogames_iuno_holdsign(
         
         let mut hasher = DefaultHasher::new();
         now.hash(&mut hasher);
-        if hasher.finish() % 2 == 0 { "0.png" } else { "1.png" }
+        if hasher.finish().is_multiple_of(2) { "0.png" } else { "1.png" }
     };
     
-    let frame = load_image(&format!("kurogames_iuno_holdsign/{}", image_choice))?;
+    let frame = load_image(format!("kurogames_iuno_holdsign/{}", image_choice))?;
     let mut surface = frame.to_surface();
     let canvas = surface.canvas();
     

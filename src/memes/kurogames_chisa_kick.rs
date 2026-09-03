@@ -42,7 +42,7 @@ fn kurogames_chisa_kick(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -
         encoder.add_frame(surface.image_snapshot(), 0.04)?;
     }
     
-    Ok(encoder.finish()?)
+    encoder.finish()
 }
 
 register_meme! {
