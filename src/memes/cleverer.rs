@@ -14,9 +14,9 @@ fn cleverer(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result
     // 处理文字：根据用户信息或输入文本来确定名称
     let name = if !texts.is_empty() {
         texts[0].clone()
+    } else if !images[0].name.is_empty() {
+        images[0].name.clone()
     } else {
-        // 注意：Rust 版本可能需要从用户信息中获取名称
-        // 这里简化为默认文本
         "这家伙".to_string()
     };
     

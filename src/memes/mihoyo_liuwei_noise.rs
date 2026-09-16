@@ -14,6 +14,8 @@ fn mihoyo_liuwei_noise(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions
     let ta = "他";
     let name = if !texts.is_empty() {
         texts[0].clone()
+    } else if !images[0].name.is_empty() {
+        images[0].name.clone()
     } else {
         ta.to_string()
     };

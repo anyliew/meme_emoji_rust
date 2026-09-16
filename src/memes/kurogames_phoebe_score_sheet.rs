@@ -17,7 +17,13 @@ fn kurogames_phoebe_score_sheet(
     texts: Vec<String>,
     _: NoOptions,
 ) -> Result<Vec<u8>, Error> {
-    let name = if !texts.is_empty() { &texts[0] } else { "他" };
+    let name = if !texts.is_empty() {
+        texts[0].clone()
+    } else if !images[0].name.is_empty() {
+        images[0].name.clone()
+    } else {
+        "他".to_string()
+    };
     let text = format!("{},你这个月评分为0,纯纯的饭桶！", name);
     let frame = load_image("kurogames_phoebe_score_sheet/0.png")?;
     let mut surface = frame.to_surface();
