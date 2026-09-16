@@ -242,14 +242,9 @@ jobs:
           echo "📂 Downloaded artifacts:"
           find artifacts -type f -name "*" | sort
 
-      - name: Install Rust toolchain
-        uses: dtolnay/rust-toolchain@stable
-
       - name: Generate custom appendix and save to file
         id: custom
         run: |
-          RUSTC_VER=$(rustc --version --verbose)
-          RUSTUP_SHOW=$(rustup show)
           APPENDIX=$(cat <<EOF
 
           ## 🚀 构建信息
@@ -276,13 +271,6 @@ jobs:
           - 构建号基于 Git 提交次数自动生成
           - 符合语义化版本规范 (SemVer)
 
-          ## 🛠️ 构建工具链
-          \`\`\`
-          $RUSTC_VER
-          \`\`\`
-          \`\`\`
-          $RUSTUP_SHOW
-          \`\`\`
           EOF
           )
           echo "$APPENDIX" > /tmp/appendix.txt
