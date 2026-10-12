@@ -9,7 +9,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_paint},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 const DEFAULT_TEXT: &str = "月相轮转之间，我以我为锚点";
 
@@ -68,7 +68,8 @@ register_meme!(
     min_texts = 1,
     max_texts = 1,
     default_texts = &[DEFAULT_TEXT],
+    tags = MemeTags::wuthering_waves(),
     keywords = &["尤诺举牌"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 8, 3),
+    date_modified = local_date(2025, 8, 3),
 );

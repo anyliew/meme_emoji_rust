@@ -37,6 +37,6 @@ register_meme!(
     min_images = 1,
     max_images = 1,
     keywords = &["芙芙方形头像", "芙宁娜方形头像"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 3, 29),
+    date_modified = local_date(2026, 10, 12),
 );

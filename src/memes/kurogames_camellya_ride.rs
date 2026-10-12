@@ -8,7 +8,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_surface},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn kurogames_camellya_ride(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let positions = [
@@ -51,6 +51,7 @@ register_meme! {
     kurogames_camellya_ride,
     min_images = 1,
     max_images = 1,
+    tags = MemeTags::wuthering_waves(),
     keywords = &["椿骑", "大傻椿骑"],
     date_created = local_date(2026, 2, 16),
     date_modified = local_date(2026, 2, 16),

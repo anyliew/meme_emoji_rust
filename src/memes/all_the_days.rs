@@ -40,6 +40,6 @@ register_meme!(
     min_images = 2,
     max_images = 2,
     keywords = &["一生一世"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 3, 14),
+    date_modified = local_date(2025, 3, 14),
 );

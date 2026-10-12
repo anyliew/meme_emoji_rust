@@ -39,6 +39,6 @@ register_meme!(
     min_images = 1,
     max_images = 1,
     keywords = &["怼地", "怼"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 5, 27),
+    date_modified = local_date(2025, 5, 27),
 );

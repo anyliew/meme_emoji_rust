@@ -40,5 +40,5 @@ register_meme!(
     max_images = 1,
     keywords = &["窃窃私语"],
     date_created = local_date(2025, 8, 11),
-    date_modified = local_date(2025, 9, 8),
+    date_modified = local_date(2025, 8, 11),
 );

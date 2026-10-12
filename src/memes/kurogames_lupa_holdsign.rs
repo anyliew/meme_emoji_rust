@@ -25,10 +25,10 @@ fn kurogames_lupa_holdsign(
     canvas.draw_text_area_auto_font_size(
         IRect::from_ltrb(657, 133, 1058, 713),
         text,
-        25.0,
+        30.0,
         120.0,
         text_params!(
-            font_families = &["FZShaoEr-M11S"],
+            font_families = &["FZSJ-QINGCRJ"],
             text_align = TextAlign::Center,
             paint = new_paint(Color::from_rgb(0, 0, 0)),
         ),
@@ -45,6 +45,6 @@ register_meme!(
     tags = MemeTags::wuthering_waves(),
     default_texts = &[DEFAULT_TEXT],
     keywords = &["露帕举牌"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 7, 4),
+    date_modified = local_date(2025, 7, 4),
 );

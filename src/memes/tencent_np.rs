@@ -36,9 +36,7 @@ register_meme!(
     tencent_np,
     min_images = 1,
     max_images = 1,
-    min_texts = 0,
-    max_texts = 1,
     keywords = &["农P", "农批"],
     date_created = local_date(2026, 1, 9),
-    date_modified = local_date(2026, 1, 9),
+    date_modified = local_date(2026, 10, 12),
 );

@@ -26,7 +26,7 @@ fn hitachi_mako_together(
         IRect::from_ltrb(170, 20, 900, 100),
         &text,
         20.0,
-        100.0,
+        70.0,
         text_params!(
             font_families = &["FZKaTong-M19S"],
             text_align = TextAlign::Center,
@@ -58,6 +58,6 @@ register_meme!(
     min_images = 1,
     max_images = 1,
     keywords = &["和她在一起"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2024, 7, 26),
+    date_modified = local_date(2024, 7, 26),
 );

@@ -96,8 +96,8 @@ register_meme! {
     kurogames_iuno_kick,             // 处理函数
     min_images = 1,        // 最少需要1张输入图片
     max_images = 1,        // 最多支持1张输入图片
-    keywords = &["尤诺踢"], // 搜索关键词
+    keywords = &["尤诺踢", "优诺踢"], // 搜索关键词
     tags = MemeTags::capoo(),
-    date_created = local_date(2025, 10, 6), // 创建日期：2022年11月29日
-    date_modified = local_date(2025, 10, 6), // 修改日期：2023年2月14日
+    date_created = local_date(2025, 7, 31), // 创建日期：2022年11月29日
+    date_modified = local_date(2025, 8, 1), // 修改日期：2023年2月14日
 }

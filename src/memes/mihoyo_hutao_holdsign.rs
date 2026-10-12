@@ -10,7 +10,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_paint},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 const DEFAULT_TEXT: &str = "嗯哼，太阳出来我晒太阳，月亮出来我晒月亮嘞";
 
@@ -45,7 +45,8 @@ register_meme!(
     min_texts = 1,
     max_texts = 1,
     default_texts = &[DEFAULT_TEXT],
+    tags = MemeTags::mihoyo(),
     keywords = &["胡桃举牌"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 7, 1),
+    date_modified = local_date(2025, 7, 1),
 );

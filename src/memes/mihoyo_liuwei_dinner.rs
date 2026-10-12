@@ -10,7 +10,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_paint},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn mihoyo_liuwei_dinner(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let frame = load_image("mihoyo_liuwei_dinner/0.png")?;
@@ -57,7 +57,8 @@ register_meme!(
     mihoyo_liuwei_dinner,
     min_images = 1,
     max_images = 1,
+    tags = MemeTags::genshin(),
     keywords = &["刘伟晚餐", "共进晚餐", "大伟哥晚餐"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 9, 2),
+    date_modified = local_date(2026, 10, 12),
 );

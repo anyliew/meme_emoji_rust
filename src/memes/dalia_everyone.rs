@@ -69,5 +69,5 @@ register_meme!(
     max_texts = 1,
     keywords = &["所有人"],
     date_created = local_date(2025, 12, 1),
-    date_modified = local_date(2025, 12, 2),
+    date_modified = local_date(2026, 10, 12),
 );

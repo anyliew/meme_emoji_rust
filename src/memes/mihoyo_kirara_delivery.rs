@@ -8,7 +8,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_surface},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn mihoyo_kirara_delivery(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let positions = [
@@ -49,6 +49,7 @@ register_meme! {
     mihoyo_kirara_delivery,
     min_images = 1,
     max_images = 1,
+    tags = MemeTags::genshin(),
     keywords = &["绮良良派送", "派送"],
     date_created = local_date(2025, 12, 5),
     date_modified = local_date(2025, 12, 5),

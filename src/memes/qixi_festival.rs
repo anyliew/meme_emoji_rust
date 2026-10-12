@@ -57,6 +57,6 @@ register_meme!(
     min_images = 1,
     max_images = 1,
     keywords = &["七夕和谁过", "七夕和谁过?", "七夕和谁过？"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 8, 28),
+    date_modified = local_date(2026, 10, 12),
 );

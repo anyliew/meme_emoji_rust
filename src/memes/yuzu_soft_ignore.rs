@@ -8,7 +8,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_surface},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn yuzu_soft_ignore(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let frame = load_image("yuzu_soft_ignore/0.png")?;
@@ -37,7 +37,8 @@ register_meme!(
     max_images = 1,
     min_texts = 0,
     max_texts = 0,
+    tags = MemeTags::yuzu_soft(),
     keywords = &["视若无睹"],
     date_created = local_date(2025, 12, 1),
-    date_modified = local_date(2025, 12, 1),
+    date_modified = local_date(2026, 10, 12),
 );

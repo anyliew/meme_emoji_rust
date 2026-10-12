@@ -65,7 +65,7 @@ register_meme!(
     look_leg,
     min_images = 1,
     max_images = 1,
-    keywords = &["看看腿"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    keywords = &["看看腿", "看看脚"],
+    date_created = local_date(2025, 12, 6),
+    date_modified = local_date(2025, 12, 6),
 );

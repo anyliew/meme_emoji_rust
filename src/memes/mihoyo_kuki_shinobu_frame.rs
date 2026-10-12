@@ -8,7 +8,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_surface},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn mihoyo_kuki_shinobu_frame(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let frame = load_image("mihoyo_kuki_shinobu_frame/0.png")?;
@@ -40,7 +40,8 @@ register_meme!(
     max_images = 1,
     min_texts = 0,
     max_texts = 0,
+    tags = MemeTags::genshin(),
     keywords = &["久岐忍相框", "阿忍相框"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 6, 1),
+    date_modified = local_date(2026, 10, 12),
 );

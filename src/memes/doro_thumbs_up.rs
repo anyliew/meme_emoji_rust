@@ -49,6 +49,6 @@ register_meme!(
     min_images = 1,
     max_images = 1,
     keywords = &["doro点赞","Doro点赞","DORO点赞","桃乐丝点赞"],
-    date_created = local_date(2024, 7, 26),
-    date_modified = local_date(2024, 7, 26),
+    date_created = local_date(2025, 7, 2),
+    date_modified = local_date(2025, 7, 2),
 );

@@ -29,7 +29,7 @@ fn kurogames_phrolova_holdsign(
         120.0,
         text_params!(
             font_families = &["FZShaoEr-M11S"],
-            text_align = TextAlign::Center,
+            text_align = TextAlign::Left,
             paint = new_paint(Color::from_rgb(0, 0, 0)),
         ),
     )?;
@@ -45,6 +45,6 @@ register_meme!(
     tags = MemeTags::wuthering_waves(),
     default_texts = &[DEFAULT_TEXT],
     keywords = &["弗洛洛举牌"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 7, 1),
+    date_modified = local_date(2025, 7, 4),
 );

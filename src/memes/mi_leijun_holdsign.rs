@@ -25,8 +25,8 @@ fn mi_leijun_holdsign(
     canvas.draw_text_area_auto_font_size(
         IRect::from_ltrb(448, 943, 1598, 1572),
         text,
-        25.0,
-        120.0,
+        30.0,
+        220.0,
         text_params!(
             font_families = &["FZShaoEr-M11S"],
             text_align = TextAlign::Center,
@@ -44,6 +44,6 @@ register_meme!(
     max_texts = 1,
     default_texts = &[DEFAULT_TEXT],
     keywords = &["雷军举牌"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 9, 23),
+    date_modified = local_date(2025, 9, 23),
 );

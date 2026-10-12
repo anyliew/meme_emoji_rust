@@ -45,6 +45,6 @@ register_meme!(
     max_texts = 1,
     default_texts = &[DEFAULT_TEXT],
     keywords = &["刘伟举牌", "大伟举牌", "大伟哥举牌"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 5, 17),
+    date_modified = local_date(2025, 5, 17),
 );

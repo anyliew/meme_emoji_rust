@@ -64,5 +64,5 @@ register_meme!(
     keywords = &["秧秧老公"],
     tags = MemeTags::wuthering_waves(),
     date_created = local_date(2025, 6, 10),
-    date_modified = local_date(2025, 6, 10),
+    date_modified = local_date(2026, 10, 12),
 );

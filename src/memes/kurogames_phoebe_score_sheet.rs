@@ -10,7 +10,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_paint, new_surface},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn kurogames_phoebe_score_sheet(
     images: Vec<InputImage>,
@@ -29,10 +29,10 @@ fn kurogames_phoebe_score_sheet(
     let mut surface = frame.to_surface();
     let canvas = surface.canvas();
     canvas.draw_text_area_auto_font_size(
-        IRect::from_ltrb(50, 50, 740, 280),
+        IRect::from_ltrb(0, 0, 1620, 622),
         &text,
         35.0,
-        100.0,
+        200.0,
         text_params!(
             font_families = &["FZKaTong-M19S"],
             text_align = TextAlign::Center,
@@ -47,8 +47,8 @@ fn kurogames_phoebe_score_sheet(
         canvas.clear(Color::TRANSPARENT);
 
         canvas.draw_image(&frame, (0, 0), None);
-        let image = images[0].circle().resize_exact((140, 140));
-        canvas.draw_image(&image, (155, 855), None);
+        let image = images[0].circle().resize_exact((235, 235));
+        canvas.draw_image(&image, (332, 1730), None);
 
         Ok(surface.image_snapshot())
     };
@@ -64,6 +64,7 @@ register_meme!(
     min_texts = 0,
     max_texts = 1,
     keywords = &["菲比评分表", "评分表"],
+    tags = MemeTags::wuthering_waves(),
     date_created = local_date(2025, 5, 24),
-    date_modified = local_date(2025, 5, 24),
+    date_modified = local_date(2026, 10, 12),
 );

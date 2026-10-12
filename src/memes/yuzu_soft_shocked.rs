@@ -60,5 +60,5 @@ register_meme!(
     keywords = &["震惊柚子厨"],
     tags = MemeTags::yuzu_soft(),
     date_created = local_date(2024, 7, 26),
-    date_modified = local_date(2026, 4, 12),
+    date_modified = local_date(2026, 10, 12),
 );

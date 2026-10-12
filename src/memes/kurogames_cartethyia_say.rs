@@ -25,7 +25,7 @@ fn kurogames_cartethyia_say(
     canvas.draw_text_area_auto_font_size(
         IRect::from_ltrb(1, 1, 874, 393),
         text,
-        25.0,
+        30.0,
         120.0,
         text_params!(
             font_families = &["FZShaoEr-M11S"],
@@ -45,6 +45,6 @@ register_meme!(
     tags = MemeTags::wuthering_waves(),
     default_texts = &[DEFAULT_TEXT],
     keywords = &["卡提说","卡提希娅说"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 6, 13),
+    date_modified = local_date(2025, 6, 13),
 );

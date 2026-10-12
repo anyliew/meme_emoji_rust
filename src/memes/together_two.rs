@@ -33,6 +33,6 @@ register_meme!(
     min_images = 2,
     max_images = 2,
     keywords = &["在一起"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 5, 25),
+    date_modified = local_date(2025, 5, 25),
 );

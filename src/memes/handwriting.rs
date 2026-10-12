@@ -40,6 +40,6 @@ register_meme!(
     max_texts = 1,
     default_texts = &["你好，世界！"],
     keywords = &["手写"],
-    date_created = local_date(2025, 8, 10),
-    date_modified = local_date(2025, 8, 10),
+    date_created = local_date(2025, 6, 11),
+    date_modified = local_date(2025, 6, 11),
 );

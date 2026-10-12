@@ -40,5 +40,5 @@ register_meme!(
     keywords = &["爱弥斯捧"],
     tags = MemeTags::wuthering_waves(),
     date_created = local_date(2026, 2, 24),
-    date_modified = local_date(2026, 2, 24),
+    date_modified = local_date(2026, 10, 12),
 );

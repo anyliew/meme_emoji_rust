@@ -40,5 +40,5 @@ register_meme!(
     max_images = 1,
     keywords = &["钓鱼"],
     date_created = local_date(2025, 8, 19),
-    date_modified = local_date(2025, 9, 1),
+    date_modified = local_date(2025, 8, 19),
 );

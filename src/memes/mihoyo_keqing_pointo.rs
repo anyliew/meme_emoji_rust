@@ -10,7 +10,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_paint},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn mihoyo_keqing_pointo(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let frame = load_image("mihoyo_keqing_pointo/0.png")?;
@@ -55,7 +55,8 @@ register_meme!(
     mihoyo_keqing_pointo,
     min_images = 1,
     max_images = 1,
+    tags = MemeTags::genshin(),
     keywords = &["刻晴指"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 9, 27),
+    date_modified = local_date(2026, 10, 12),
 );

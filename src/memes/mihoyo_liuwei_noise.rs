@@ -8,7 +8,7 @@ use meme_generator_utils::{
     text_params,
     tools::{load_image, local_date, new_paint},
 };
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn mihoyo_liuwei_noise(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let ta = "他";
@@ -61,6 +61,7 @@ register_meme!(
     max_images = 1,
     min_texts = 0,
     max_texts = 1,
+    tags = MemeTags::genshin(),
     keywords = &["声音", "尖锐的声音"],
     date_created = local_date(2025, 12, 30),
     date_modified = local_date(2025, 12, 30),

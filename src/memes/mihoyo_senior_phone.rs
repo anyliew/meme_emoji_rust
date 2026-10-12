@@ -8,7 +8,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_surface},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn mihoyo_senior_phone(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let frame = load_image("mihoyo_senior_phone/0.png")?;
@@ -38,7 +38,8 @@ register_meme!(
     max_images = 1,
     min_texts = 0,
     max_texts = 0,
+    tags = MemeTags::genshin(),
     keywords = &["米学长手机"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 7, 2),
+    date_modified = local_date(2026, 10, 12),
 );

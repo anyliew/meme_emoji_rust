@@ -36,7 +36,7 @@ register_meme!(
     swimsuit_group_photo,
     min_images = 2,
     max_images = 2,
-    keywords = &["泳衣合影"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    keywords = &["泳衣合影", "比基尼合影"],
+    date_created = local_date(2025, 5, 25),
+    date_modified = local_date(2025, 9, 5),
 );

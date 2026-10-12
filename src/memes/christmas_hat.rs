@@ -38,5 +38,5 @@ register_meme!(
     max_images = 1,
     keywords = &["圣诞帽子", "圣诞帽"],
     date_created = local_date(2025, 12, 6),
-    date_modified = local_date(2025, 12, 6),
+    date_modified = local_date(2026, 10, 12),
 );

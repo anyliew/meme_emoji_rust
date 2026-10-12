@@ -21,8 +21,8 @@ fn atri_finger(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<
     canvas.draw_text_area_auto_font_size(
         IRect::from_ltrb(0, 588, 1171, 720),
         &text,
-        20.0,
-        100.0,
+        15.0,
+        150.0,
         text_params!(
             paint = new_paint(Color::from_rgb(0, 0, 0)),
             text_align = TextAlign::Left,
@@ -49,6 +49,6 @@ register_meme!(
     max_images = 1,
     tags = MemeTags::atri(),
     keywords = &["亚托莉指"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 3, 24),
+    date_modified = local_date(2025, 3, 24),
 );

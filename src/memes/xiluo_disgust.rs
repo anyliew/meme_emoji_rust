@@ -33,5 +33,5 @@ register_meme!(
     max_images = 1,
     keywords = &["希罗嫌弃", "二阶堂希罗嫌弃"],
     date_created = local_date(2025, 10, 5),
-    date_modified = local_date(2025, 10, 5),
+    date_modified = local_date(2026, 10, 12),
 );

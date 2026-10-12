@@ -27,7 +27,7 @@ fn mihoyo_funina_card(
         30.0,
         120.0,
         text_params!(
-            font_families = &["FZKaTong-M19S"],
+            font_families = &["FZShaoEr-M11S"],
             text_align = TextAlign::Center,
             paint = new_paint(Color::from_rgb(0, 0, 0)),
         ),
@@ -44,6 +44,6 @@ register_meme!(
     tags = MemeTags::furina(),
     default_texts = &[DEFAULT_TEXT],
     keywords = &["芙芙卡片", "芙宁娜卡片", "芙芙酱卡片"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 5, 17),
+    date_modified = local_date(2025, 5, 26),
 );

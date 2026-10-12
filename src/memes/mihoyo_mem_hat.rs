@@ -40,5 +40,5 @@ register_meme!(
     keywords = &["迷迷帽", "迷迷帽子"],
     tags = MemeTags::star_rail(),
     date_created = local_date(2026, 4, 17),
-    date_modified = local_date(2026, 4, 17),
+    date_modified = local_date(2026, 10, 12),
 );

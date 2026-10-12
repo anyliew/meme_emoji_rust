@@ -8,7 +8,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_surface},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn kurogames_yangyang_love(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let positions = [
@@ -43,6 +43,7 @@ register_meme! {
     kurogames_yangyang_love,
     min_images = 1,
     max_images = 1,
+    tags = MemeTags::wuthering_waves(),
     keywords = &["秧秧比心"],
     date_created = local_date(2025, 12, 1),
     date_modified = local_date(2025, 12, 1),

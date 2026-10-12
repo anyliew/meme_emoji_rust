@@ -8,7 +8,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_surface},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn kurogames_chisa_kick(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let positions = [
@@ -50,6 +50,7 @@ register_meme! {
     kurogames_chisa_kick,
     min_images = 1,
     max_images = 1,
+    tags = MemeTags::wuthering_waves(),
     keywords = &["千咲踢"],
     date_created = local_date(2025, 12, 1),
     date_modified = local_date(2025, 12, 30),

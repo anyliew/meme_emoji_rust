@@ -27,7 +27,12 @@ fn new_goodnews(
         .name
         .clone()
         .filter(|n| !n.is_empty())
-        .or_else(|| texts.first().cloned())
+        .or_else(|| {
+            images
+                .first()
+                .map(|img| img.name.clone())
+                .filter(|n| !n.is_empty())
+        })
         .unwrap_or_else(|| "天命之人".to_string());
     let text2 = texts.first().cloned().unwrap_or_default();
     let frame = load_image("new_goodnews/0.png")?;
@@ -79,5 +84,5 @@ register_meme!(
     default_texts = &["喜报传佳讯\n福星高照\n满门庭"],
     keywords = &["新喜报"],
     date_created = local_date(2024, 7, 26),
-    date_modified = local_date(2026, 4, 11),
+    date_modified = local_date(2026, 10, 12),
 );

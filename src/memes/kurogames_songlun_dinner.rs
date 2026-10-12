@@ -10,7 +10,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_paint},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn kurogames_songlun_dinner(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let frame = load_image("kurogames_songlun_dinner/0.png")?;
@@ -57,7 +57,8 @@ register_meme!(
     kurogames_songlun_dinner,
     min_images = 1,
     max_images = 1,
+    tags = MemeTags::wuthering_waves(),
     keywords = &["松伦晚餐", "松伦哥晚餐"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 9, 2),
+    date_modified = local_date(2026, 10, 12),
 );

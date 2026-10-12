@@ -38,8 +38,8 @@ fn yuzu_soft_ayachi_nene(
             150.0,
             text_params!(
                 font_families = &["FZSJ-QINGCRJ"],
-                text_align = TextAlign::Center,
-                paint = new_paint(Color::from_rgb(57, 49, 46))
+                text_align = TextAlign::Left,
+                paint = new_paint(Color::from_rgb(0, 0, 0))
             ),
         )?;
         
@@ -56,6 +56,6 @@ register_meme!(
     min_images = 1,
     max_images = 1,
     keywords = &["宁宁困惑", "绫地宁宁困惑"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 3, 24),
+    date_modified = local_date(2026, 10, 12),
 );

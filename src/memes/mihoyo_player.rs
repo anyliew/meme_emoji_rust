@@ -30,10 +30,8 @@ register_meme!(
     mihoyo_player,
     min_images = 1,
     max_images = 1,
-    min_texts = 0,
-    max_texts = 1,
     keywords = &["二游玩家"],
     tags = MemeTags::mihoyo(),
     date_created = local_date(2026, 9, 9),
-    date_modified = local_date(2026, 9, 9),
+    date_modified = local_date(2026, 10, 12),
 );

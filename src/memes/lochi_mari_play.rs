@@ -8,7 +8,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_surface},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn lochi_mari_play(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
 
@@ -45,7 +45,8 @@ register_meme!(
     lochi_mari_play,
     min_images = 1,
     max_images = 1,
+    tags = MemeTags::blue_archive(),
     keywords = &["玛丽玩","伊落玛丽玩"],
-    date_created = local_date(2025, 8, 10),
-    date_modified = local_date(2025, 8, 10),
+    date_created = local_date(2025, 8, 8),
+    date_modified = local_date(2025, 8, 8),
 );

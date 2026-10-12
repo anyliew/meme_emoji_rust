@@ -1,114 +1,102 @@
-# 定义 GitHub Actions 工作流的名称
 name: Update wiki
 
-# 触发工作流的事件配置
 on:
-  # 当有代码推送到指定分支时触发
   push:
-    # 指定触发分支
     branches:
       - main
-    # 指定触发路径，只有 src 目录下的文件变更才会触发
     paths:
+      # 表情实现与模块列表
       - "src/**"
-  # 允许手动触发工作流
+      # 表情素材（新增/替换预览图依赖它）
+      - "resources/**"
+      # 版本号变化也应刷新 wiki
+      - "Cargo.toml"
   workflow_dispatch:
 
-# 设置工作流的权限
+# 同一时间只允许一个 wiki 更新任务，避免并发推送互相覆盖
+concurrency:
+  group: update-wiki-${{ github.repository }}
+  cancel-in-progress: false
+
 permissions:
-  # 授予写入仓库内容的权限
   contents: write
 
-# 定义工作流中的任务
 jobs:
-  # 更新 wiki 的任务
   update-wiki:
-    # 指定运行环境为22.04的 Ubuntu 系统
-    runs-on: ubuntu-22.04
-    # 定义任务执行步骤
+    runs-on: ubuntu-24.04
     steps:
-      # 第一步：检出当前仓库代码
-      - uses: actions/checkout@v4
+      - name: Checkout current repo
+        uses: actions/checkout@v5
 
-      # 第二步：检出 wiki 仓库代码
       - name: Checkout wiki repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
-          # 指定要检出的 wiki 仓库，格式为 当前仓库名.wiki
           repository: ${{ github.repository }}.wiki
-          # 指定 wiki 仓库的检出路径
           path: wiki
 
-      # 第三步：检出主仓库代码
-      - name: Checkout main repo
-        uses: actions/checkout@v4
+      - name: Checkout upstream repo
+        uses: actions/checkout@v5
         with:
-          # 指定主仓库地址
           repository: MemeCrafters/meme-generator-rs
-          # 指定主仓库的检出路径
           path: main
 
-      # 第四步：设置指定版本的 Rust 工具链
-      - uses: dtolnay/rust-toolchain@1.88.0
-      # 第五步：设置 Rust 构建缓存，加速后续构建
+      # 与 ci-build-release 保持一致，避免工具链版本差异导致编译失败
+      - uses: dtolnay/rust-toolchain@1.93.1
+
       - uses: swatinem/rust-cache@v2
 
-      # 第六步：设置 Python 环境
       - name: Setup python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
-          # 指定 Python 版本为 3.10
           python-version: "3.10"
 
-      # 第七步：安装系统依赖
       - name: Install dependencies
         run: |
-          # 安装字体相关的系统库
-          sudo apt install -y libfontconfig1-dev libfreetype6-dev
+          sudo apt-get update
+          sudo apt-get install -y libfontconfig1-dev libfreetype6-dev
 
-      # 第八步：更新 memes.md 文件（核心步骤）
-      - name: Update memes.md
+      # 统一取新加坡标准时间（SGT，UTC+8）用于文档与提交信息
+      - name: Get SGT time
+        id: time
         run: |
-          # 安装 Python 虚拟环境和构建工具
-          pip install virtualenv maturin[patchelf]
-          # 进入 Python 项目目录
-          cd main/meme_generator_py
-          # 创建 Python 虚拟环境
-          virtualenv .venv
-          # 在开发模式下构建 Rust 扩展
-          maturin develop --release
-          # 激活虚拟环境
-          source .venv/bin/activate
-          # 安装必要的 Python 包
-          pip install filetype pillow
-          # 返回上级目录
-          cd ../..
-          # 以发布模式构建 Rust 项目
-          cargo build --release
-          # 创建库文件目录
-          mkdir libraries
-          # 复制构建好的 Rust 库文件
-          cp target/release/libmeme_emoji.so libraries/
-          # 复制字体资源文件
-          cp -r main/resources/fonts resources/
-          # 创建配置文件，设置只加载外部表情包
-          echo -e "[meme]\nload_builtin_memes = false\nload_external_memes = true\n" > config.toml
-          # 设置环境变量，指定 meme 生成器的主目录
-          export MEME_HOME=.
-          # 执行 Python 脚本更新表情包列表
-          python wiki/update_meme_list.py
+          if TZ=Asia/Singapore date >/dev/null 2>&1; then
+            SGT=$(TZ=Asia/Singapore date '+%Y-%m-%d %H:%M:%S')
+          else
+            SGT=$(TZ=UTC-8 date '+%Y-%m-%d %H:%M:%S')
+          fi
+          echo "sgt=$SGT" >> "$GITHUB_OUTPUT"
+          echo "🕐 更新时间（SGT，UTC+8）：$SGT"
 
-      # 第九步：提交并推送更改到 wiki 仓库
+      - name: Update 表情列表.md
+        env:
+          UPDATE_TIME: ${{ steps.time.outputs.sgt }}
+        run: |
+          pip install virtualenv maturin[patchelf]
+          cd main/meme_generator_py
+          virtualenv .venv
+          maturin develop --release
+          source .venv/bin/activate
+          pip install filetype pillow
+          cd ../..
+          cargo build --release
+          mkdir libraries
+          cp target/release/libmeme_emoji.so libraries/
+          cp -r main/resources/fonts resources/
+          echo -e "[meme]\nload_builtin_memes = false\nload_external_memes = true\n" > config.toml
+          export MEME_HOME=.
+          python wiki/scripts/update_meme_list.py
+
       - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          # 指定要推送的目录（wiki 目录）
-          directory: "wiki"
-          # 指定目标仓库
-          repository: ${{ github.repository }}.wiki
-          # 使用 GitHub token 进行认证
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          # 提交信息
-          message: "update meme list"
-          # 推送到 wiki 仓库的 master 分支
-          branch: "master"
+        env:
+          UPDATE_TIME: ${{ steps.time.outputs.sgt }}
+        run: |
+          cd wiki
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "✅ wiki 无变更，跳过提交"
+            exit 0
+          fi
+          git commit -m "更新表情列表 - $UPDATE_TIME（SGT）"
+          git push origin HEAD:master

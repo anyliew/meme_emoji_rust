@@ -10,7 +10,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_paint},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn mihoyo_sigewinne_fingered(
     images: Vec<InputImage>,
@@ -25,10 +25,10 @@ fn mihoyo_sigewinne_fingered(
     
     // 先绘制文字
     canvas.draw_text_area_auto_font_size(
-        IRect::from_ltrb(0, 345, 351, 435),
+        IRect::from_ltrb(1, 345, 351, 435),
         &text,
-        10.0,
-        70.0,
+        15.0,
+        60.0,
         text_params!(
             font_families = &["FZXS14"],
             text_align = TextAlign::Left,
@@ -48,7 +48,8 @@ register_meme!(
     mihoyo_sigewinne_fingered,
     min_images = 1,
     max_images = 1,
+    tags = MemeTags::genshin(),
     keywords = &["没救了","希格雯指"],
-    date_created = local_date(2024, 7, 26),
-    date_modified = local_date(2024, 7, 26),
+    date_created = local_date(2025, 9, 13),
+    date_modified = local_date(2026, 10, 12),
 );

@@ -231,5 +231,5 @@ register_meme!(
     max_texts = 0,
     keywords = &["卢浮宫"],
     date_created = local_date(2025, 5, 29),
-    date_modified = local_date(2026, 5, 26),
+    date_modified = local_date(2026, 10, 12),
 );

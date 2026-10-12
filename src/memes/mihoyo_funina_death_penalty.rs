@@ -37,6 +37,6 @@ register_meme!(
     min_images = 1,
     max_images = 1,
     keywords = &["死刑"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 3, 14),
+    date_modified = local_date(2026, 10, 12),
 );

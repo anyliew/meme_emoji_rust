@@ -45,6 +45,6 @@ register_meme!(
     min_images = 1,
     max_images = 1,
     keywords = &["捶你"],
-    date_created = local_date(2025, 8, 10),
-    date_modified = local_date(2025, 8, 10),
+    date_created = local_date(2025, 5, 27),
+    date_modified = local_date(2025, 5, 27),
 );

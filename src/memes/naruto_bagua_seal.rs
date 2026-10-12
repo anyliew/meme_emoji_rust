@@ -37,5 +37,5 @@ register_meme!(
     max_images = 1,
     keywords = &["八卦封印"],
     date_created = local_date(2026, 1, 9),
-    date_modified = local_date(2026, 1, 9),
+    date_modified = local_date(2026, 10, 12),
 );

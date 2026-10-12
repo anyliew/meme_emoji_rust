@@ -66,5 +66,5 @@ register_meme!(
     max_texts = 1,
     keywords = &["周边写真"],
     date_created = local_date(2025, 9, 13),
-    date_modified = local_date(2025, 9, 13),
+    date_modified = local_date(2026, 10, 12),
 );

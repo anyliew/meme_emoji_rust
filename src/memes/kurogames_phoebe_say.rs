@@ -12,7 +12,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_paint},
 };
 
-use crate::register_meme;
+use crate::{register_meme, tags::MemeTags};
 
 #[derive(Clone, Debug, Default, serde::Deserialize)]
 pub struct Number {
@@ -85,6 +85,7 @@ register_meme!(
     min_texts = 1,
     max_texts = 1,
     default_texts = &[DEFAULT_TEXT],
+    tags = MemeTags::wuthering_waves(),
     keywords = &["菲比说"],
     date_created = local_date(2025, 5, 10),
     date_modified = local_date(2026, 2, 16),

@@ -25,7 +25,7 @@ fn kurogames_phoebe_holdsign(
     canvas.draw_text_area_auto_font_size(
         IRect::from_ltrb(143, 512, 721, 855),
         text,
-        10.0,
+        30.0,
         120.0,
         text_params!(
             font_families = &["FZShaoEr-M11S"],
@@ -45,6 +45,6 @@ register_meme!(
     tags = MemeTags::wuthering_waves(),
     default_texts = &[DEFAULT_TEXT],
     keywords = &["菲比举牌"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 6, 13),
+    date_modified = local_date(2025, 6, 13),
 );

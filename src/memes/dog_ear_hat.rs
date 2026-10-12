@@ -75,6 +75,6 @@ register_meme! {
     min_images = 1,        // 最少需要1张输入图片
     max_images = 1,        // 最多支持1张输入图片
     keywords = &["狗耳帽","狗帽"], // 搜索关键词
-    date_created = local_date(2025, 10, 6), 
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 8, 17), 
+    date_modified = local_date(2025, 8, 17),
 }

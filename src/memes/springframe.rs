@@ -39,5 +39,5 @@ register_meme!(
     max_images = 1,
     keywords = &["春日燕归来"],
     date_created = local_date(2026, 4, 17),
-    date_modified = local_date(2026, 4, 17),
+    date_modified = local_date(2026, 10, 12),
 );

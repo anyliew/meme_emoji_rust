@@ -7,7 +7,7 @@ on:
     paths:
       - "Cargo.toml"
       - "src/**"
-  pull_request_target:
+  pull_request:
     paths:
       - "Cargo.toml"
       - "src/**"
@@ -233,48 +233,54 @@ jobs:
 
     steps:
       - name: Download all artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           path: artifacts
 
       - name: List all downloaded files
         run: |
           echo "📂 Downloaded artifacts:"
-          find artifacts -type f -name "*" | sort
+          find artifacts -type f | sort
 
       - name: Generate custom appendix and save to file
         id: custom
         run: |
+          SGT=$(TZ=Asia/Singapore date '+%Y-%m-%d %H:%M:%S' 2>/dev/null || TZ=UTC-8 date '+%Y-%m-%d %H:%M:%S')
+
+          # 动态生成文件列表，与 build 矩阵自动保持一致
+          FILE_LIST=""
+          for f in $(find artifacts -type f | sort); do
+            base=$(basename "$f")
+            case "$base" in
+              *windows-x86_64*) desc="Windows 动态链接库" ;;
+              *macos-x86_64*) desc="macOS Intel 动态库" ;;
+              *macos-aarch64*) desc="macOS Apple Silicon 动态库" ;;
+              *linux-x86_64*) desc="Linux x86_64 动态库" ;;
+              *linux-aarch64*) desc="Linux ARM64 动态库" ;;
+              *android-aarch64*) desc="Android ARM64 动态库" ;;
+              *) desc="动态库" ;;
+            esac
+            FILE_LIST="${FILE_LIST}- \`${base}\` - ${desc}"$'\n'
+          done
+
           APPENDIX=$(cat <<EOF
 
           ## 🚀 构建信息
           - **版本**: \`${{ needs.generate_version.outputs.version }}\`
+          - **发布时间**: ${SGT}（SGT，UTC+8）
 
-          这是一个自动构建的 Release，包含以下平台的动态库（每个平台提供 stable 和 1.93.1 两个版本）：
-          - 🪟 Windows (x86_64)
-          - 🍎 macOS (Intel)
-          - 🍏 macOS (Apple Silicon)
-          - 🐧 Linux (x86_64)
-          - 🐧 Linux (ARM64)
-          - 📱 Android (ARM64)
+          这是一个自动构建的 Release，包含以下平台的动态库：
 
           ## 📦 文件列表
-          - \`meme-emoji-windows-x86_64-stable.dll\` / \`meme-emoji-windows-x86_64-1.93.1.dll\` - Windows 动态链接库
-          - \`meme-emoji-macos-x86_64-stable.dylib\` / \`meme-emoji-macos-x86_64-1.93.1.dylib\` - macOS Intel 动态库
-          - \`meme-emoji-macos-aarch64-stable.dylib\` / \`meme-emoji-macos-aarch64-1.93.1.dylib\` - macOS Apple Silicon 动态库
-          - \`meme-emoji-linux-x86_64-stable.so\` / \`meme-emoji-linux-x86_64-1.93.1.so\` - Linux x86_64 动态库
-          - \`meme-emoji-linux-aarch64-stable.so\` / \`meme-emoji-linux-aarch64-1.93.1.so\` - Linux ARM64 动态库
-          - \`meme-emoji-android-aarch64-stable.so\` / \`meme-emoji-android-aarch64-1.93.1.so\` - Android ARM64 动态库
-
+          ${FILE_LIST}
           ## 🔍 版本说明
           版本号格式: \`{Cargo版本}+build.{构建号}\`
-          - 构建号基于 Git 提交次数自动生成
+          - 构建号基于 Git 提交次数自动生成，仅为构建序号，不参与版本比较
           - 符合语义化版本规范 (SemVer)
 
           EOF
           )
           echo "$APPENDIX" > /tmp/appendix.txt
-          echo "file=/tmp/appendix.txt" >> $GITHUB_OUTPUT
 
       - name: Display version info
         run: |
@@ -284,7 +290,7 @@ jobs:
 
       - name: Create Release (auto-generated notes)
         id: create_release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ needs.generate_version.outputs.tag }}
           name: Release ${{ needs.generate_version.outputs.version }}

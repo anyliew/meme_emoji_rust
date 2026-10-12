@@ -37,6 +37,6 @@ register_meme!(
     max_images = 1,
     keywords = &["丛雨老公"],
     tags = MemeTags::murasame(),
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2024, 7, 26),
+    date_modified = local_date(2026, 10, 12),
 );

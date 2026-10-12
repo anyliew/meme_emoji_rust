@@ -10,7 +10,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_paint},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 const DEFAULT_TEXT: &str = "岁主在上\n菲比湫比";
 
@@ -53,6 +53,7 @@ register_meme!(
     min_texts = 1,
     max_texts = 1,
     default_texts = &[DEFAULT_TEXT],
+    tags = MemeTags::wuthering_waves(),
     keywords = &["菲比喇叭"],
     date_created = local_date(2026, 1, 23),
     date_modified = local_date(2026, 1, 23),

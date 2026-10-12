@@ -44,6 +44,6 @@ register_meme!(
     min_images = 1,
     max_images = 1,
     keywords = &["跳床","蹦床","doro蹦床","桃乐丝蹦床","doro跳床","桃乐丝跳床"],
-    date_created = local_date(2025, 8, 10),
-    date_modified = local_date(2025, 8, 10),
+    date_created = local_date(2025, 8, 1),
+    date_modified = local_date(2025, 8, 1),
 );

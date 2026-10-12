@@ -8,7 +8,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_surface},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn kurogames_brqd(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let frame = load_image("kurogames_brqd/0.png")?;
@@ -38,7 +38,8 @@ register_meme!(
     max_images = 1,
     min_texts = 0,
     max_texts = 0,
+    tags = MemeTags::wuthering_waves(),
     keywords = &["百日签到"],
     date_created = local_date(2026, 2, 16),
-    date_modified = local_date(2026, 2, 16),
+    date_modified = local_date(2026, 10, 12),
 );

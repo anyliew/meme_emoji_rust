@@ -68,5 +68,5 @@ register_meme!(
     max_texts = 1,
     keywords = &["京东外卖骑手", "京东外卖工牌"],
     date_created = local_date(2025, 3, 24),
-    date_modified = local_date(2025, 9, 25),
+    date_modified = local_date(2026, 10, 12),
 );

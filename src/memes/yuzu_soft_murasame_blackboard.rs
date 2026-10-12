@@ -25,7 +25,7 @@ fn yuzu_soft_murasame_blackboard(
     canvas.draw_text_area_auto_font_size(
         IRect::from_ltrb(351, 128, 1119, 326),
         text,
-        25.0,
+        20.0,
         150.0,
         text_params!(
             font_families = &["FZSJ-QINGCRJ"],
@@ -44,6 +44,6 @@ register_meme!(
     max_texts = 1,
     default_texts = &[DEFAULT_TEXT],
     keywords = &["丛雨黑板"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2024, 12, 21),
+    date_modified = local_date(2024, 12, 21),
 );

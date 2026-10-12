@@ -10,7 +10,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_paint},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 const DEFAULT_TEXT: &str = "用新鲜的肉烹饪出的沙丁布卡~\n我是比较老派的七丘口味\n这道菜可以添加适量的辣椒\n但不要学拉古那人加奇怪的酸味酱啊！";
 
@@ -44,7 +44,8 @@ register_meme!(
     min_texts = 1,
     max_texts = 1,
     default_texts = &[DEFAULT_TEXT],
+    tags = MemeTags::wuthering_waves(),
     keywords = &["阿布写信"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 7, 4),
+    date_modified = local_date(2025, 7, 4),
 );

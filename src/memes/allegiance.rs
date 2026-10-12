@@ -33,8 +33,8 @@ fn allegiance(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<V
         canvas.draw_text_area_auto_font_size(
             IRect::from_ltrb(1, 774, 1061, 942),
             &text,
-            20.0,
-            100.0,
+            15.0,
+            120.0,
             text_params!(
                 font_families = &["FZXS14"],
                 text_align = TextAlign::Left,
@@ -54,6 +54,6 @@ register_meme!(
     min_images = 1,
     max_images = 1,
     keywords = &["충성","忠橙","敬礼"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 8, 16),
+    date_modified = local_date(2026, 10, 12),
 );

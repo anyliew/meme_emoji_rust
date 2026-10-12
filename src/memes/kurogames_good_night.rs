@@ -8,7 +8,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_surface},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn kurogames_good_night(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let frame = load_image("kurogames_good_night/0.png")?;
@@ -31,7 +31,8 @@ register_meme!(
     kurogames_good_night,
     min_images = 1,
     max_images = 1,
+    tags = MemeTags::wuthering_waves(),
     keywords = &["晚安"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 7, 1),
+    date_modified = local_date(2026, 10, 12),
 );

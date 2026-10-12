@@ -45,6 +45,6 @@ register_meme!(
     tags = MemeTags::atri(),
     default_texts = &[DEFAULT_TEXT],
     keywords = &["大傻椿举牌","傻椿举牌"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 7, 4),
+    date_modified = local_date(2025, 7, 4),
 );

@@ -10,7 +10,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_paint},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn mihoyo_kuki_shinobu_who(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let frame = load_image("mihoyo_kuki_shinobu_who/0.png")?;
@@ -58,7 +58,8 @@ register_meme!(
     max_images = 1,
     min_texts = 0,
     max_texts = 1,
+    tags = MemeTags::genshin(),
     keywords = &["此人是谁", "是谁", "是谁？", "是谁？"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 9, 30),
+    date_modified = local_date(2026, 10, 12),
 );

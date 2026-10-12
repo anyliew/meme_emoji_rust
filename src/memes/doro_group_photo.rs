@@ -39,5 +39,5 @@ register_meme!(
     max_texts = 0,
     keywords = &["doro合影", "Doro合影", "桃乐丝合影"],
     date_created = local_date(2026, 2, 16),
-    date_modified = local_date(2026, 2, 16),
+    date_modified = local_date(2026, 10, 12),
 );

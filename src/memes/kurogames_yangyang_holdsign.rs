@@ -25,7 +25,7 @@ fn kurogames_yangyang_holdsign(
     canvas.draw_text_area_auto_font_size(
         IRect::from_ltrb(334, 821, 908, 1101),
         text,
-        25.0,
+        30.0,
         120.0,
         text_params!(
             font_families = &["FZSJ-QINGCRJ"],
@@ -45,6 +45,6 @@ register_meme!(
     tags = MemeTags::wuthering_waves(),
     default_texts = &[DEFAULT_TEXT],
     keywords = &["秧秧举牌"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 6, 12),
+    date_modified = local_date(2025, 6, 12),
 );

@@ -10,7 +10,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_paint},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn yuzu_soft_murasame_finger(
     images: Vec<InputImage>,
@@ -28,7 +28,7 @@ fn yuzu_soft_murasame_finger(
         IRect::from_ltrb(805, 94, 1728, 274),
         &text,
         20.0,
-        150.0,
+        100.0,
         text_params!(
             font_families = &["FZXS14"],
             text_align = TextAlign::Center,
@@ -48,7 +48,8 @@ register_meme!(
     yuzu_soft_murasame_finger,
     min_images = 1,
     max_images = 1,
+    tags = MemeTags::yuzu_soft(),
     keywords = &["柚子厨","丛雨指"],
     date_created = local_date(2024, 7, 26),
-    date_modified = local_date(2024, 7, 26),
+    date_modified = local_date(2025, 5, 25),
 );

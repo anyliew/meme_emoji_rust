@@ -56,7 +56,7 @@ register_meme!(
     max_texts = 1,
     tags = MemeTags::wuthering_waves(),
     default_texts = &[DEFAULT_TEXT],
-    keywords = &["难道说", "松伦说"],
+    keywords = &["松伦说"],
     date_created = local_date(2025, 6, 10),
     date_modified = local_date(2025, 6, 10),
 );

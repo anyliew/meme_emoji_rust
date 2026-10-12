@@ -26,10 +26,10 @@ fn yuzu_soft_holdsign(
         IRect::from_ltrb(1150, 896, 3024, 1240),
         text,
         30.0,
-        120.0,
+        300.0,
         text_params!(
             font_families = &["PangMenZhengDao-Cu"],
-            text_align = TextAlign::Center,
+            text_align = TextAlign::Left,
             paint = new_paint(Color::from_rgb(0, 0, 0)),
         ),
     )?;
@@ -45,6 +45,6 @@ register_meme!(
     tags = MemeTags::yuzu_soft(),
     default_texts = &[DEFAULT_TEXT],
     keywords = &["柚子厨举牌"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2024, 12, 21),
+    date_modified = local_date(2024, 12, 21),
 );

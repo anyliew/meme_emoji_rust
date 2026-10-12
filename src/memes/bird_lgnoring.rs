@@ -92,6 +92,6 @@ register_meme! {
     min_images = 1,        // 最少需要1张输入图片
     max_images = 1,        // 最多支持1张输入图片
     keywords = &["不鸟你","我鸟都不鸟你"], // 搜索关键词
-    date_created = local_date(2025, 12, 24),
-    date_modified = local_date(2025, 12, 24),
+    date_created = local_date(2025, 12, 23),
+    date_modified = local_date(2025, 12, 23),
 }

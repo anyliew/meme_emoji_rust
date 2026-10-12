@@ -9,7 +9,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_surface},
 };
 
-use crate::{options::number_option, register_meme};
+use crate::{options::number_option, register_meme, tags::MemeTags};
 
 number_option!(Number, 1, 3);
 
@@ -39,7 +39,8 @@ register_meme!(
     yuzu_soft_murasame_hug,
     min_images = 1,
     max_images = 1,
+    tags = MemeTags::yuzu_soft(),
     keywords = &["丛雨抱"],
     date_created = local_date(2026, 2, 19),
-    date_modified = local_date(2026, 4, 1),
+    date_modified = local_date(2026, 10, 12),
 );

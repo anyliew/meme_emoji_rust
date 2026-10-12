@@ -23,12 +23,12 @@ fn admission_letter(
     let mut surface = frame.to_surface();
     let canvas = surface.canvas();
     canvas.draw_text_area_auto_font_size(
-        IRect::from_ltrb(101, 195, 300, 213),
+        IRect::from_ltrb(102, 195, 500, 217),
         text,
         10.0,
-        50.0,
+        16.0,
         text_params!(
-            font_families = &["FZXS14"],
+            font_families = &["FZShaoEr-M11S"],
             text_align = TextAlign::Left,
             paint = new_paint(Color::from_rgb(0, 0, 0)),
         ),
@@ -44,6 +44,6 @@ register_meme!(
     max_texts = 1,
     default_texts = &[DEFAULT_TEXT],
     keywords = &["录取通知书"],
-    date_created = local_date(2025, 5, 17),
-    date_modified = local_date(2025, 5, 17),
+    date_created = local_date(2025, 8, 25),
+    date_modified = local_date(2025, 8, 25),
 );

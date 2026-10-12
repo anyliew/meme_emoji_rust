@@ -27,8 +27,8 @@ fn deer_plan(
     canvas.draw_text_area_auto_font_size(
         IRect::from_ltrb(160, 18, 1041, 118),
         &text,
-        10.0,
-        70.0,
+        15.0,
+        120.0,
         text_params!(
             font_families = &["FZXS14"],
             text_align = TextAlign::Left,
@@ -49,6 +49,6 @@ register_meme!(
     min_images = 1,
     max_images = 1,
     keywords = &["鹿管计划"],
-    date_created = local_date(2024, 7, 26),
-    date_modified = local_date(2024, 7, 26),
+    date_created = local_date(2025, 9, 28),
+    date_modified = local_date(2025, 9, 28),
 );

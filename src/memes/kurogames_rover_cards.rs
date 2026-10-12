@@ -10,7 +10,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_paint},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn kurogames_rover_cards(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let name = &images[0].name;
@@ -33,13 +33,13 @@ fn kurogames_rover_cards(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) 
         
         // 最后绘制文字作为最上层
         canvas.draw_text_area_auto_font_size(
-            IRect::from_ltrb(0, 0, 960, 185),
+            IRect::from_ltrb(1, 1, 960, 185),
             &text,
             20.0,
-            100.0,
+            120.0,
             text_params!(
-                font_families = &["FZXS14"],
-                text_align = TextAlign::Left,
+                font_families = &["FZShaoEr-M11S"],
+                text_align = TextAlign::Center,
                 paint = new_paint(Color::from_rgb(255, 255, 255))
             ),
         )?;
@@ -55,7 +55,8 @@ register_meme!(
     kurogames_rover_cards,
     min_images = 1,
     max_images = 1,
+    tags = MemeTags::wuthering_waves(),
     keywords = &["荣耀之丘"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 7, 7),
+    date_modified = local_date(2026, 10, 12),
 );

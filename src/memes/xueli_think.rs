@@ -33,5 +33,5 @@ register_meme!(
     max_images = 1,
     keywords = &["雪莉想", "雪梨想", "橘雪莉想"],
     date_created = local_date(2025, 10, 5),
-    date_modified = local_date(2025, 10, 5),
+    date_modified = local_date(2026, 10, 12),
 );

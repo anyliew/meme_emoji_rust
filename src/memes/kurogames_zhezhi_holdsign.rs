@@ -44,6 +44,6 @@ register_meme!(
     tags = MemeTags::zhezhi(),
     default_texts = &[DEFAULT_TEXT],
     keywords = &["折枝举牌"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 5, 17),
+    date_modified = local_date(2025, 5, 17),
 );

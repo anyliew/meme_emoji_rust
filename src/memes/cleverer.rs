@@ -99,5 +99,5 @@ register_meme!(
     max_texts = 1,
     keywords = &["比聪明"],
     date_created = local_date(2025, 11, 21),
-    date_modified = local_date(2025, 11, 21),
+    date_modified = local_date(2026, 10, 12),
 );

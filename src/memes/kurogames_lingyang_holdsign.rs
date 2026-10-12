@@ -23,12 +23,12 @@ fn kurogames_lingyang_holdsign(
     let mut surface = frame.to_surface();
     let canvas = surface.canvas();
     canvas.draw_text_area_auto_font_size(
-        IRect::from_ltrb(146, 465, 627, 890),
+        IRect::from_ltrb(342, 436, 679, 762),
         text,
         30.0,
         120.0,
         text_params!(
-            font_families = &["FZShaoEr-M11S"],
+            font_families = &["FZKaTong-M19S"],
             text_align = TextAlign::Left,
             paint = new_paint(Color::from_rgb(0, 0, 0)),
         ),
@@ -45,6 +45,6 @@ register_meme!(
     max_texts = 1,
     default_texts = &[DEFAULT_TEXT],
     keywords = &["凌阳举牌", "雪豹举牌"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 5, 25),
+    date_modified = local_date(2025, 12, 5),
 );

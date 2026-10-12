@@ -39,6 +39,6 @@ register_meme!(
     min_images = 1,
     max_images = 1,
     keywords = &["土豆地雷"],
-    date_created = local_date(2025, 8, 11),
-    date_modified = local_date(2025, 9, 8),
+    date_created = local_date(2025, 9, 3),
+    date_modified = local_date(2025, 9, 3),
 );

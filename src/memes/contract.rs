@@ -22,7 +22,7 @@ fn contract(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec
         IRect::from_ltrb(1416, 515, 1905, 597),
         &text,
         20.0,
-        100.0,
+        60.0,
         text_params!(
             font_families = &["FZKaTong-M19S"],
             text_align = TextAlign::Center,
@@ -48,6 +48,6 @@ register_meme!(
     min_images = 1,
     max_images = 1,
     keywords = &["卖身契","⭐️💢契约","奴隶契约",],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 3, 24),
+    date_modified = local_date(2025, 11, 3),
 );

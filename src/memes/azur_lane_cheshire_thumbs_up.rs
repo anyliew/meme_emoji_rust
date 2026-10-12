@@ -29,7 +29,7 @@ fn azur_lane_cheshire_thumbs_up(images: Vec<InputImage>, _: Vec<String>, _: NoOp
         canvas.draw_text_area_auto_font_size(
             IRect::from_ltrb(207, 1, 739, 150),
             &text,
-            15.0,
+            20.0,
             100.0,
             text_params!(
                 font_families = &["FZXS14"],
@@ -54,6 +54,6 @@ register_meme!(
     min_images = 1,
     max_images = 1,
     keywords = &["柴郡点赞","柴郡猫点赞"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 7, 2),
+    date_modified = local_date(2025, 7, 2),
 );

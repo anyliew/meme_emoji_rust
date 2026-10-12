@@ -10,7 +10,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_paint},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 const DEFAULT_TEXT: &str = "潮水啊，我已归来";
 
@@ -52,6 +52,7 @@ register_meme!(
     min_texts = 1,
     max_texts = 1,
     default_texts = &[DEFAULT_TEXT],
+    tags = MemeTags::mihoyo(),
     keywords = &["那维莱特说", "水龙王说"],
     date_created = local_date(2026, 1, 12),
     date_modified = local_date(2026, 1, 12),

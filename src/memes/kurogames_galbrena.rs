@@ -37,10 +37,8 @@ register_meme!(
     kurogames_galbrena,
     min_images = 1,
     max_images = 1,
-    min_texts = 0,
-    max_texts = 1,
     keywords = &["嘉贝莉娜"],
     tags = MemeTags::wuthering_waves(),
     date_created = local_date(2026, 4, 8),
-    date_modified = local_date(2026, 4, 8),
+    date_modified = local_date(2026, 10, 12),
 );

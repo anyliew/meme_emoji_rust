@@ -39,5 +39,5 @@ register_meme!(
     max_texts = 0,
     keywords = &["砸桌"],
     date_created = local_date(2026, 2, 16),
-    date_modified = local_date(2026, 2, 16),
+    date_modified = local_date(2026, 10, 12),
 );

@@ -28,7 +28,7 @@ fn laughing(
         IRect::from_ltrb(1, 1, 1495, 407),
         &text,
         20.0,
-        70.0,
+        100.0,
         text_params!(
             font_families = &["FZXS14"],
             text_align = TextAlign::Left,
@@ -49,6 +49,6 @@ register_meme!(
     min_images = 1,
     max_images = 1,
     keywords = &["笑指"],
-    date_created = local_date(2024, 7, 26),
-    date_modified = local_date(2024, 7, 26),
+    date_created = local_date(2025, 7, 2),
+    date_modified = local_date(2025, 7, 2),
 );

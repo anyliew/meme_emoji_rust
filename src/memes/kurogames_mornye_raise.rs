@@ -8,7 +8,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_surface},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn kurogames_mornye_raise(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let positions = [
@@ -55,7 +55,8 @@ register_meme! {
     kurogames_mornye_raise,
     min_images = 1,
     max_images = 1,
+    tags = MemeTags::wuthering_waves(),
     keywords = &["莫宁举"],
     date_created = local_date(2026, 1, 20),
-    date_modified = local_date(2026, 1, 20),
+    date_modified = local_date(2026, 10, 12),
 }

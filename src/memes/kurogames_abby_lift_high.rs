@@ -9,7 +9,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_surface}, // 工具函数：加载图像、本地日期、创建画布
 };
 
-use crate::{options::NoOptions, register_meme}; // 当前crate的模块
+use crate::{options::NoOptions, register_meme, tags::MemeTags}; // 当前crate的模块
 
 // 主要的表情包生成函数
 fn kurogames_abby_lift_high(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
@@ -69,7 +69,8 @@ register_meme! {
     kurogames_abby_lift_high,             // 处理函数
     min_images = 1,        // 最少需要1张输入图片
     max_images = 1,        // 最多支持1张输入图片
+    tags = MemeTags::wuthering_waves(),
     keywords = &["举高高"], // 搜索关键词
-    date_created = local_date(2025, 10, 6), 
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 8, 3), 
+    date_modified = local_date(2025, 8, 3),
 }

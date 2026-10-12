@@ -35,5 +35,5 @@ register_meme!(
     max_images = 1,
     keywords = &["偷"],
     date_created = local_date(2026, 3, 31),
-    date_modified = local_date(2026, 9, 4),
+    date_modified = local_date(2026, 10, 12),
 );

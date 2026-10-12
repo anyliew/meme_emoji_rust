@@ -37,10 +37,8 @@ register_meme!(
     kurogames_lantern_festival,
     min_images = 1,
     max_images = 1,
-    min_texts = 0,
-    max_texts = 1,
     keywords = &["元宵"],
     tags = MemeTags::wuthering_waves(),
     date_created = local_date(2026, 4, 8),
-    date_modified = local_date(2026, 4, 8),
+    date_modified = local_date(2026, 10, 12),
 );

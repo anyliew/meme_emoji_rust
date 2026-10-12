@@ -26,7 +26,7 @@ fn yuzu_soft_murasame_clothes(
     canvas.draw_text_area_auto_font_size(
         IRect::from_ltrb(0, 0, 130, 339),
         &text,
-        20.0,
+        25.0,
         100.0,
         text_params!(
             text_align = TextAlign::Center,
@@ -56,6 +56,6 @@ register_meme!(
     min_images = 1,
     max_images = 1,
     keywords = &["丛雨衣服", "丛雨衣物"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 3, 24),
+    date_modified = local_date(2025, 3, 24),
 );

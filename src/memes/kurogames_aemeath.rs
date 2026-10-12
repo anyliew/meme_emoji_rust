@@ -8,7 +8,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_surface},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn kurogames_aemeath(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let frame = load_image("kurogames_aemeath/0.png")?;
@@ -36,9 +36,8 @@ register_meme!(
     kurogames_aemeath,
     min_images = 1,
     max_images = 1,
-    min_texts = 0,
-    max_texts = 1,
+    tags = MemeTags::wuthering_waves(),
     keywords = &["爱弥斯"],
     date_created = local_date(2026, 2, 7),
-    date_modified = local_date(2026, 2, 7),
+    date_modified = local_date(2026, 10, 12),
 );

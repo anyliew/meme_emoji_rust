@@ -10,7 +10,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_paint, new_surface},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn yuzu_soft_ticket(
     images: Vec<InputImage>,
@@ -34,7 +34,7 @@ fn yuzu_soft_ticket(
         canvas.draw_text_area_auto_font_size(
             IRect::new(485, 544, 625, 583),
             text,
-            10.0,
+            30.0,
             100.0,
             text_params!(
                 font_families = &["FZShaoEr-M11S"],
@@ -55,7 +55,8 @@ register_meme!(
     max_images = 1,
     min_texts = 0,
     max_texts = 1,
+    tags = MemeTags::yuzu_soft(),
     keywords = &["准考证"],
     date_created = local_date(2025, 6, 7),
-    date_modified = local_date(2025, 6, 7),
+    date_modified = local_date(2026, 10, 12),
 );

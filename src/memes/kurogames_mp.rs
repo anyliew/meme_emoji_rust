@@ -33,6 +33,6 @@ register_meme!(
     min_images = 1,
     max_images = 1,
     keywords = &["鸣批", "鸣P", "鸣p", "鸣潮玩家", "鸣潮男"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 3, 7),
+    date_modified = local_date(2026, 10, 12),
 );

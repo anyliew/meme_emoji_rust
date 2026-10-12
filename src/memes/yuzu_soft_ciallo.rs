@@ -8,7 +8,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_surface},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn yuzu_soft_ciallo(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let frame = load_image("yuzu_soft_ciallo/0.png")?;
@@ -38,7 +38,8 @@ register_meme!(
     max_images = 1,
     min_texts = 0,
     max_texts = 0,
-    keywords = &["ciallo", "ciallo~"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    tags = MemeTags::yuzu_soft(),
+    keywords = &["ciallo", "ciallo~", "ciallo～", "柚子社", "yuzusoft"],
+    date_created = local_date(2025, 9, 5),
+    date_modified = local_date(2026, 10, 12),
 );

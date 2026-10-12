@@ -46,6 +46,6 @@ register_meme!(
     min_images = 1,
     max_images = 1,
     keywords = &["桃乐丝舔", "doro舔", "Doro舔", "DORO舔"],
-    date_created = local_date(2025, 8, 10),
-    date_modified = local_date(2025, 8, 10),
+    date_created = local_date(2025, 7, 20),
+    date_modified = local_date(2025, 7, 20),
 );

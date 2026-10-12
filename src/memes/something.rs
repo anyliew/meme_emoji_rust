@@ -62,5 +62,5 @@ register_meme!(
     max_texts = 1,
     keywords = &["什么东西"],
     date_created = local_date(2026, 1, 12),
-    date_modified = local_date(2026, 1, 12),
+    date_modified = local_date(2026, 10, 12),
 );

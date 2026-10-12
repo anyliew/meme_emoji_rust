@@ -25,10 +25,10 @@ fn mihoyo_liuwei_say(
     canvas.draw_text_area_auto_font_size(
         IRect::from_ltrb(426, 44, 1219, 284),
         text,
-        25.0,
+        30.0,
         120.0,
         text_params!(
-            font_families = &["FZShaoEr-M11S"],
+            font_families = &["FZSJ-QINGCRJ"],
             text_align = TextAlign::Center,
             paint = new_paint(Color::from_rgb(0, 0, 0)),
         ),
@@ -45,6 +45,6 @@ register_meme!(
     tags = MemeTags::wuthering_waves(),
     default_texts = &[DEFAULT_TEXT],
     keywords = &["刘伟说","大伟说","大伟哥说"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 9, 21),
+    date_modified = local_date(2025, 9, 21),
 );

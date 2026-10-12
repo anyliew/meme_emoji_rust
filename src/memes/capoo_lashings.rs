@@ -8,7 +8,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_surface},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn capoo_lashings(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let positions = [
@@ -44,6 +44,7 @@ register_meme! {
     capoo_lashings,
     min_images = 1,
     max_images = 1,
+    tags = MemeTags::capoo(),
     keywords = &["咖波捶打", "捶打"],
     date_created = local_date(2025, 12, 5),
     date_modified = local_date(2025, 12, 5),

@@ -45,6 +45,6 @@ register_meme!(
     tags = MemeTags::mako(),
     default_texts = &[DEFAULT_TEXT],
     keywords = &["常陸茉子举牌", "茉子举牌", "常陆茉子举牌"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 5, 17),
+    date_modified = local_date(2025, 5, 17),
 );

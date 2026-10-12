@@ -25,8 +25,8 @@ fn kurogames_gugu_blowfish_small_classes(
     canvas.draw_text_area_auto_font_size(
         IRect::from_ltrb(65, 173, 1301, 897),
         text,
-        25.0,
-        120.0,
+        20.0,
+        150.0,
         text_params!(
             font_families = &["FZShaoEr-M11S"],
             text_align = TextAlign::Left,
@@ -45,6 +45,6 @@ register_meme!(
     tags = MemeTags::wuthering_waves(),
     default_texts = &[DEFAULT_TEXT],
     keywords = &["咕咕河豚小课堂","小课堂"],
-    date_created = local_date(2025, 10, 6),
-    date_modified = local_date(2025, 10, 6),
+    date_created = local_date(2025, 6, 1),
+    date_modified = local_date(2025, 6, 1),
 );

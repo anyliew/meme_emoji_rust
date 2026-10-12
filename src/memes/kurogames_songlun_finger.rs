@@ -10,7 +10,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date, new_paint},
 };
 
-use crate::{options::NoOptions, register_meme};
+use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn kurogames_songlun_finger(
     images: Vec<InputImage>,
@@ -28,9 +28,9 @@ fn kurogames_songlun_finger(
         IRect::from_ltrb(3, 350, 482, 606),
         &text,
         20.0,
-        70.0,
+        100.0,
         text_params!(
-            font_families = &["FZXS14"],
+            font_families = &["FZShaoEr-M11S"],
             text_align = TextAlign::Center,
             paint = new_paint(Color::from_rgb(0, 0, 0)),
         ),
@@ -48,7 +48,8 @@ register_meme!(
     kurogames_songlun_finger,
     min_images = 1,
     max_images = 1,
+    tags = MemeTags::wuthering_waves(),
     keywords = &["松伦指","潮批"],
-    date_created = local_date(2024, 7, 26),
-    date_modified = local_date(2024, 7, 26),
+    date_created = local_date(2025, 7, 1),
+    date_modified = local_date(2026, 7, 21),
 );
