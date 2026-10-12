@@ -22,8 +22,8 @@ fn kurogames_winter(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Re
             .circle()
             .resize_exact((326, 326));
             
-        canvas.draw_image(&frame, (0, 0), None);
         canvas.draw_image(&img, (93, 93), None);
+        canvas.draw_image(&frame, (0, 0), None);
         
         Ok(surface.image_snapshot())
     };

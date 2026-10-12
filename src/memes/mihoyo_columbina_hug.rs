@@ -21,8 +21,8 @@ fn mihoyo_columbina_hug(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -
         let img = images[0]
             .resize_exact((467, 432));
             
-        canvas.draw_image(&frame, (0, 0), None);
         canvas.draw_image(&img, (510, 470), None);
+        canvas.draw_image(&frame, (0, 0), None);
         
         Ok(surface.image_snapshot())
     };

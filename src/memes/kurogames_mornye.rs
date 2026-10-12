@@ -22,8 +22,8 @@ fn kurogames_mornye(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Re
             .circle()
             .resize_exact((657, 657));
             
-        canvas.draw_image(&frame, (0, 0), None);
         canvas.draw_image(&img, (182, 184), None);
+        canvas.draw_image(&frame, (0, 0), None);
         
         Ok(surface.image_snapshot())
     };

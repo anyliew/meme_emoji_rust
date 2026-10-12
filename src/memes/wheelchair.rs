@@ -58,14 +58,14 @@ fn wheelchair(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<V
 
     let func = |i: usize, images: Vec<Image>| {
         let frame = load_image(format!("wheelchair/{i}.png"))?;
-        let self_head = images[0].resize_fit((54, 54), Fit::Cover).rotate(30.0);
+        let self_head = images[0].resize_fit((54, 54), Fit::Cover).rotate_crop(30.0);
         let user_head = images[1]
             .resize_fit((124, 124), Fit::Cover)
-            .rotate(15.0 * (i as f32 + 1.0));
+            .rotate_crop(15.0 * (i as f32 + 1.0));
         let mut surface = new_surface(frame.dimensions());
         let canvas = surface.canvas();
-        canvas.draw_image(&user_head, user_locs[i], None);
         canvas.draw_image(&self_head, self_locs[i], None);
+        canvas.draw_image(&user_head, user_locs[i], None);
         canvas.draw_image(&frame, (0, 0), None);
         Ok(surface.image_snapshot())
     };

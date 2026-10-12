@@ -21,8 +21,8 @@ fn slam_table(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<V
         let img = images[0]
             .resize_exact((417, 417));
             
-        canvas.draw_image(&frame, (0, 0), None);
         canvas.draw_image(&img, (295, 13), None);
+        canvas.draw_image(&frame, (0, 0), None);
         
         Ok(surface.image_snapshot())
     };

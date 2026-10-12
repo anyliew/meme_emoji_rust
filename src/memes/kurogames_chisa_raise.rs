@@ -21,8 +21,8 @@ fn kurogames_chisa_raise(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) 
         let img = images[0]
             .resize_exact((349, 349));
             
-        canvas.draw_image(&frame, (0, 0), None);
         canvas.draw_image(&img, (459, 568), None);
+        canvas.draw_image(&frame, (0, 0), None);
         
         Ok(surface.image_snapshot())
     };

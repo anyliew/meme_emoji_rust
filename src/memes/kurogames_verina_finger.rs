@@ -5,7 +5,7 @@ use meme_generator_utils::{
     builder::InputImage,
     canvas::CanvasExt,
     encoder::make_png_or_gif,
-    image::{Fit, ImageExt},
+    image::ImageExt,
     text_params,
     tools::{load_image, local_date, new_paint},
 };
@@ -23,15 +23,11 @@ fn kurogames_verina_finger(images: Vec<InputImage>, _: Vec<String>, _: NoOptions
         let mut surface = frame.to_surface();
         let canvas = surface.canvas();
         
-        // 处理用户图片：调整尺寸（没有圆形裁剪）
-        let img = images[0]
-            .resize_fit((420, 420), Fit::Cover);
+        let img = images[0].resize_exact((420, 420));
         canvas.draw_image(&img, (248, 555), None);
-        
-        // 绘制frame
+
         canvas.draw_image(&frame, (0, 0), None);
         
-        // 绘制文字
         canvas.draw_text_area_auto_font_size(
             IRect::from_ltrb(1, 1, 1203, 257),
             &text,

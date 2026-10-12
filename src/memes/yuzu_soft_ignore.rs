@@ -21,8 +21,8 @@ fn yuzu_soft_ignore(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Re
         let img = images[0]
             .resize_exact((340, 204));
             
-        canvas.draw_image(&frame, (0, 0), None);
         canvas.draw_image(&img, (95, 42), None);
+        canvas.draw_image(&frame, (0, 0), None);
         
         Ok(surface.image_snapshot())
     };

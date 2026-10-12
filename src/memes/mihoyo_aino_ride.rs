@@ -18,23 +18,15 @@ fn mihoyo_aino_ride(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Re
         let canvas = surface.canvas();
         canvas.clear(Color::TRANSPARENT);
         
-        canvas.draw_image(&frame, (0, 0), None);
-        
-        // 位置1
         let img1 = images[0].resize_exact((224, 199));
-        canvas.draw_image(&img1, (593, 721), None);
-        
-        // 位置2
         let img2 = images[0].resize_exact((132, 144));
-        canvas.draw_image(&img2, (262, 832), None);
-        
-        // 位置3
         let img3 = images[0].resize_exact((115, 115));
-        canvas.draw_image(&img3, (390, 754), None);
-        
-        // 位置4
         let img4 = images[0].resize_exact((111, 125));
         canvas.draw_image(&img4, (133, 692), None);
+        canvas.draw_image(&img3, (390, 754), None);
+        canvas.draw_image(&img2, (262, 832), None);
+        canvas.draw_image(&img1, (593, 721), None);
+        canvas.draw_image(&frame, (0, 0), None);
         
         Ok(surface.image_snapshot())
     };

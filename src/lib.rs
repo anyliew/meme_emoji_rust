@@ -42,11 +42,24 @@ mod tests {
         init_meme_home();
         let _ = std::fs::remove_file(log_path());
 
+        let filter: Vec<String> = std::env::var("MEME_PREVIEW_FILTER")
+            .unwrap_or_default()
+            .split(',')
+            .map(|s| s.trim().to_string())
+            .filter(|s| !s.is_empty())
+            .collect();
+        let out_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("target/preview-output");
+        let _ = std::fs::create_dir_all(&out_dir);
+
         let mut failures = Vec::new();
         let mut passed = 0usize;
         let mut total = 0usize;
 
         for declaration in inventory::iter::<MemeDeclaration> {
+            if !filter.is_empty() && !filter.iter().any(|f| declaration.name.contains(f.as_str()))
+            {
+                continue;
+            }
             total += 1;
             let meme = (declaration.builder)();
             let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
@@ -55,6 +68,8 @@ mod tests {
             match result {
                 Ok(Ok(bytes)) if bytes.len() >= 32 && is_png_or_gif(&bytes) => {
                     passed += 1;
+                    let ext = if bytes.starts_with(b"GIF") { "gif" } else { "png" };
+                    let _ = std::fs::write(out_dir.join(format!("{}.{}", declaration.name, ext)), &bytes);
                     log_line(&format!("ok  {} ({} bytes)", declaration.name, bytes.len()));
                 }
                 Ok(Ok(bytes)) => {

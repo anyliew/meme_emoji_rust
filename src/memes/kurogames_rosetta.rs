@@ -22,8 +22,8 @@ fn kurogames_rosetta(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> R
             .circle()
             .resize_exact((333, 333));
             
-        canvas.draw_image(&frame, (0, 0), None);
         canvas.draw_image(&img, (90, 90), None);
+        canvas.draw_image(&frame, (0, 0), None);
         
         Ok(surface.image_snapshot())
     };

@@ -21,8 +21,8 @@ fn kurogames_singhalese(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -
         let img = images[0]
             .resize_exact((668, 668));
             
-        canvas.draw_image(&frame, (0, 0), None);
         canvas.draw_image(&img, (566, 512), None);
+        canvas.draw_image(&frame, (0, 0), None);
         
         Ok(surface.image_snapshot())
     };

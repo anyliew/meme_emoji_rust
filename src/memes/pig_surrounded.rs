@@ -21,8 +21,8 @@ fn pig_surrounded(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Resu
         let img = images[0]
             .resize_exact((596, 596));
             
-        canvas.draw_image(&frame, (0, 0), None);
         canvas.draw_image(&img, (242, 458), None);
+        canvas.draw_image(&frame, (0, 0), None);
         
         Ok(surface.image_snapshot())
     };

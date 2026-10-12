@@ -5,7 +5,7 @@ use meme_generator_utils::{
     builder::InputImage,
     canvas::CanvasExt,
     encoder::make_png_or_gif,
-    image::{Fit, ImageExt},
+    image::ImageExt,
     text_params,
     tools::{load_image, local_date, new_paint},
 };
@@ -34,7 +34,7 @@ fn contract(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec
     let func = |images: Vec<Image>| {
         let mut surface = frame.to_surface();
         let canvas = surface.canvas();
-        let img = images[0].circle().resize_bound((135, 135), Fit::Cover);
+        let img = images[0].resize_exact((135, 135)).circle();
         canvas.draw_image(&img, (1770, 1096), None);
         Ok(surface.image_snapshot())
     };

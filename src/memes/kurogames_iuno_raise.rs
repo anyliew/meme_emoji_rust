@@ -21,8 +21,8 @@ fn kurogames_iuno_raise(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -
         let img = images[0]
             .resize_exact((439, 439));
             
-        canvas.draw_image(&frame, (0, 0), None);
         canvas.draw_image(&img, (789, 1081), None);
+        canvas.draw_image(&frame, (0, 0), None);
         
         Ok(surface.image_snapshot())
     };

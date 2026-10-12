@@ -21,8 +21,8 @@ fn kurogames_phoebe_hug(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -
         let img = images[0]
             .resize_exact((96, 78));
             
-        canvas.draw_image(&frame, (0, 0), None);
         canvas.draw_image(&img, (87, 218), None);
+        canvas.draw_image(&frame, (0, 0), None);
         
         Ok(surface.image_snapshot())
     };

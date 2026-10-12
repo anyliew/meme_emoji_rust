@@ -4,7 +4,7 @@ use meme_generator_core::error::Error;
 use meme_generator_utils::{
     builder::InputImage,
     encoder::make_png_or_gif,
-    image::{Fit, ImageExt},
+    image::ImageExt,
     tools::{load_image, local_date, new_surface},
 };
 
@@ -20,10 +20,10 @@ fn kurogames_rover_head(
     let func = |images: Vec<Image>| {
         let mut surface = new_surface(frame.dimensions());
         let canvas = surface.canvas();
-        canvas.clear(Color::WHITE);
-        let image = images[0].circle().resize_bound((1200, 1200), Fit::Cover).rotate(-10.0);
-        canvas.draw_image(&frame, (0, 0), None);
+        canvas.clear(Color::TRANSPARENT);
+        let image = images[0].circle().resize_exact((1200, 1200)).rotate(-10.0);
         canvas.draw_image(&image, (248, 250), None);
+        canvas.draw_image(&frame, (0, 0), None);
         Ok(surface.image_snapshot())
     };
 
