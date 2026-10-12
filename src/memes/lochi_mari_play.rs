@@ -21,7 +21,7 @@ fn lochi_mari_play(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Res
 
     let func = |i: usize, images: Vec<Image>| {
         let frame = load_image(format!("lochi_mari_play/{i}.png"))?;
-        let user_head = images[0].circle().resize_exact((64, 64));
+        let user_head = images[0].resize_exact((62, 62));
         let mut surface = new_surface(frame.dimensions());
         let canvas = surface.canvas();
         canvas.draw_image(&user_head, params[i], None);

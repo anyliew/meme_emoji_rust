@@ -25,9 +25,9 @@ fn mixue_stick_beaten_fresh_orange(images: Vec<InputImage>, _: Vec<String>, _: N
         let img2 = images[0].resize_fit((160, 135), Fit::Cover);
         
         // 绘制第一个头像，坐标(272, 569)
-        canvas.draw_image(&img1, (272, 569), None);
-        // 绘制第二个头像，坐标(580, 432)
         canvas.draw_image(&img2, (580, 432), None);
+        // 绘制第二个头像，坐标(580, 432)
+        canvas.draw_image(&img1, (272, 569), None);
         // 绘制框架
         canvas.draw_image(&frame, (0, 0), None);
         Ok(surface.image_snapshot())

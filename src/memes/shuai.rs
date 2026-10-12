@@ -25,7 +25,12 @@ fn shuai(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8
         let canvas = surface.canvas();
         canvas.clear(Color::WHITE);
 
-        let img = images[0].image.square().resize_exact((w, h)).circle();
+        let img = images[0]
+            .image
+            .square()
+            .resize_exact((110, 110))
+            .circle()
+            .resize_exact((w, h));
         canvas.draw_image(&img, (x, y), None);
         canvas.draw_image(&frame, (0, 0), None);
 

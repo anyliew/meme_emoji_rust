@@ -12,10 +12,10 @@ use meme_generator_utils::{
 
 use crate::{options::NoOptions, register_meme};
 
-fn family_know(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
+fn family_know(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let frame = load_image("family_know/0.png")?;
     
-    let name = &images[0].name;
+    let name = texts.first().unwrap_or(&images[0].name);
     
     let text = name.to_string();
 
@@ -56,6 +56,8 @@ register_meme!(
     family_know,
     min_images = 1,
     max_images = 1,
+    min_texts = 0,
+    max_texts = 1,
     keywords = &["家人们谁懂啊"],
     date_created = local_date(2025, 9, 9),
     date_modified = local_date(2026, 10, 12),

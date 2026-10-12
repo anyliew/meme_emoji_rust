@@ -35,8 +35,8 @@ fn yuzu_soft_murasame_like(images: Vec<InputImage>, texts: Vec<String>, _: NoOpt
     let func = |images: Vec<Image>| {
         let mut surface = new_surface(frame.dimensions());
         let canvas = surface.canvas();
-        let image = images[0].resize_fit((305, 235), Fit::Cover);
-        canvas.draw_image(&image, (106, 72), None);
+        let image = images[0].resize_fit((275, 275), Fit::Cover);
+        canvas.draw_image(&image, (47, 51), None);
         canvas.draw_image(&frame, (0, 0), None);
         Ok(surface.image_snapshot())
     };

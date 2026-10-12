@@ -32,8 +32,8 @@ fn yuzu_soft_shocked(
         let canvas = surface.canvas();
         canvas.clear(Color::WHITE);
         let img = images[0].circle().resize_exact((144, 144));
-        canvas.draw_image(&img, (0, 423), None);
         canvas.draw_image(&frame, (0, 0), None);
+        canvas.draw_image(&img, (0, 423), None);
         canvas.draw_text_area_auto_font_size(
             IRect::from_ltrb(144, 423, 1080, 567),
             &text,

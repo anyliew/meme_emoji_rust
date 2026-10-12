@@ -14,10 +14,10 @@ use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn mihoyo_sigewinne_fingered(
     images: Vec<InputImage>,
-    _: Vec<String>,
+    texts: Vec<String>,
     _: NoOptions,
 ) -> Result<Vec<u8>, Error> {
-    let name = &images[0].name;
+    let name = texts.first().unwrap_or(&images[0].name);
     let text = format!("希格雯:这{}没救了\n希格雯:快拉去璃月往生堂\n希格雯:让胡堂主埋了吧", name);
     let frame = load_image("mihoyo_sigewinne_fingered/0.png")?;
     let mut surface = frame.to_surface();
@@ -48,6 +48,8 @@ register_meme!(
     mihoyo_sigewinne_fingered,
     min_images = 1,
     max_images = 1,
+    min_texts = 0,
+    max_texts = 1,
     tags = MemeTags::genshin(),
     keywords = &["没救了","希格雯指"],
     date_created = local_date(2025, 9, 13),

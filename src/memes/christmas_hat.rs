@@ -22,8 +22,8 @@ fn christmas_hat(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Resul
             .circle()
             .resize_exact((209, 209));
             
-        canvas.draw_image(&frame, (0, 0), None);
         canvas.draw_image(&image, (47, 78), None);
+        canvas.draw_image(&frame, (0, 0), None);
         
         Ok(surface.image_snapshot())
     };

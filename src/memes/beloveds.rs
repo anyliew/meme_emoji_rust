@@ -12,8 +12,8 @@ use meme_generator_utils::{
 
 use crate::{options::NoOptions, register_meme};
 
-fn beloveds(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
-    let name = &images[0].name;
+fn beloveds(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
+    let name = texts.first().unwrap_or(&images[0].name);
     let text = format!("だいじなひと{name}👩‍❤️‍💋‍👨");
     let frame = load_image("beloveds/0.png")?;
 
@@ -53,6 +53,8 @@ register_meme!(
     beloveds,
     min_images = 1,
     max_images = 1,
+    min_texts = 0,
+    max_texts = 1,
     keywords = &["挚爱"],
     date_created = local_date(2025, 5, 26),
     date_modified = local_date(2026, 10, 12),

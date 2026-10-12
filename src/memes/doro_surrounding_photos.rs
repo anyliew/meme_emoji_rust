@@ -12,9 +12,9 @@ use meme_generator_utils::{
 
 use crate::{options::NoOptions, register_meme};
 
-fn doro_surrounding_photos(images: Vec<InputImage>, _texts: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
+fn doro_surrounding_photos(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let frame = load_image("doro_surrounding_photos/0.png")?;
-    let name = &images[0].name;
+    let name = texts.first().unwrap_or(&images[0].name);
     let text = format!("桃乐丝:我这边里有Doro动漫周边公仔\n桃乐丝:还有{}的写真~\n桃乐丝:你要吗？", name);
 
     let func = |images: Vec<Image>| {
@@ -24,16 +24,16 @@ fn doro_surrounding_photos(images: Vec<InputImage>, _texts: Vec<String>, _: NoOp
         let img = &images[0];
         
         // 第一次粘贴 - 先绘制用户图片在最底层
-        let img1 = img.resize_bound((100, 130), Fit::Contain);
-        canvas.draw_image(&img1, (860, 1095), None);
+        let img3 = img.resize_bound((100, 100), Fit::Contain).rotate(15.0);
+        canvas.draw_image(&img3, (815, 1296), None);
         
         // 第二次粘贴
         let img2 = img.resize_bound((68, 68), Fit::Contain);
         canvas.draw_image(&img2, (864, 1227), None);
         
         // 第三次粘贴
-        let img3 = img.resize_bound((100, 100), Fit::Contain).rotate(15.0);
-        canvas.draw_image(&img3, (815, 1296), None);
+        let img1 = img.resize_bound((100, 130), Fit::Contain);
+        canvas.draw_image(&img1, (860, 1095), None);
         
         // 然后绘制frame覆盖在用户图片之上
         canvas.draw_image(&frame, (0, 0), None);

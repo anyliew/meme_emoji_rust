@@ -14,10 +14,10 @@ use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn kurogames_songlun_finger(
     images: Vec<InputImage>,
-    _: Vec<String>,
+    texts: Vec<String>,
     _: NoOptions,
 ) -> Result<Vec<u8>, Error> {
-    let name = &images[0].name;
+    let name = texts.first().unwrap_or(&images[0].name);
     let text = format!("难道说\n\n{}是潮批?", name);
     let frame = load_image("kurogames_songlun_finger/0.jpg")?;
     let mut surface = frame.to_surface();
@@ -48,6 +48,8 @@ register_meme!(
     kurogames_songlun_finger,
     min_images = 1,
     max_images = 1,
+    min_texts = 0,
+    max_texts = 1,
     tags = MemeTags::wuthering_waves(),
     keywords = &["松伦指","潮批"],
     date_created = local_date(2025, 7, 1),

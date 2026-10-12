@@ -37,7 +37,7 @@ fn kurogames_mornye_raise(images: Vec<InputImage>, _: Vec<String>, _: NoOptions)
         
         // 对于前13帧（索引0-12），将头像旋转13°
         if i < 13 {
-            user_head = user_head.rotate(-13.0);
+            user_head = user_head.rotate_crop(-13.0);
         }
         
         let (x, y) = positions[i];

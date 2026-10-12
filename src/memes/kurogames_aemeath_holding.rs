@@ -20,7 +20,7 @@ fn kurogames_aemeath_holding(
     for i in 0..36 {
         let img = images[0]
             .image
-            .rotate(-(i as f32 * 10.0))
+            .rotate_crop(i as f32 * 10.0)
             .resize_exact((91, 91));
         let mut surface = new_surface(frame.dimensions());
         let canvas = surface.canvas();

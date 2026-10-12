@@ -12,8 +12,8 @@ use meme_generator_utils::{
 
 use crate::{options::NoOptions, register_meme};
 
-fn ikun_need_tv(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
-    let name = &images[0].name;
+fn ikun_need_tv(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
+    let name = texts.first().unwrap_or(&images[0].name);
     let text = format!("坤坤好喜欢{name}\n想要一个{name}❤️~");
     let frame = load_image("ikun_need_tv/0.png")?;
 
@@ -53,6 +53,8 @@ register_meme!(
     ikun_need_tv,
     min_images = 1,
     max_images = 1,
+    min_texts = 0,
+    max_texts = 1,
     keywords = &["坤坤想要"],
     date_created = local_date(2025, 9, 4),
     date_modified = local_date(2026, 10, 12),

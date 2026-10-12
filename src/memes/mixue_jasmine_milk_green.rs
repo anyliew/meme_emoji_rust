@@ -25,9 +25,9 @@ fn mixue_jasmine_milk_green(images: Vec<InputImage>, _: Vec<String>, _: NoOption
         let img2 = images[0].resize_fit((100, 85), Fit::Cover);
         
         // 绘制第一个头像，坐标(218, 458)
-        canvas.draw_image(&img1, (218, 458), None);
-        // 绘制第二个头像，坐标(452, 395)
         canvas.draw_image(&img2, (452, 395), None);
+        // 绘制第二个头像，坐标(452, 395)
+        canvas.draw_image(&img1, (218, 458), None);
         // 绘制框架
         canvas.draw_image(&frame, (0, 0), None);
         Ok(surface.image_snapshot())

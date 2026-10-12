@@ -14,10 +14,10 @@ use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn yuzu_soft_murasame_finger(
     images: Vec<InputImage>,
-    _: Vec<String>,
+    texts: Vec<String>,
     _: NoOptions,
 ) -> Result<Vec<u8>, Error> {
-    let name = &images[0].name;
+    let name = texts.first().unwrap_or(&images[0].name);
     let text = format!("原来{}是柚子厨", name);
     let frame = load_image("yuzu_soft_murasame_finger/0.png")?;
     let mut surface = frame.to_surface();
@@ -48,6 +48,8 @@ register_meme!(
     yuzu_soft_murasame_finger,
     min_images = 1,
     max_images = 1,
+    min_texts = 0,
+    max_texts = 1,
     tags = MemeTags::yuzu_soft(),
     keywords = &["柚子厨","丛雨指"],
     date_created = local_date(2024, 7, 26),

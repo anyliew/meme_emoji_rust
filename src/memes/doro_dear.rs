@@ -12,10 +12,10 @@ use meme_generator_utils::{
 
 use crate::{options::NoOptions, register_meme};
 
-fn doro_dear(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
+fn doro_dear(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let frame = load_image("doro_dear/0.png")?;
     
-    let name = &images[0].name;
+    let name = texts.first().unwrap_or(&images[0].name);
     
     let text = format!("桃乐丝:{name},你永远是桃乐丝的最爱之人❤️");
 
@@ -55,6 +55,8 @@ register_meme!(
     doro_dear,
     min_images = 1,
     max_images = 1,
+    min_texts = 0,
+    max_texts = 1,
     keywords = &["最爱", "doro最爱", "Doro最爱", "DORO最爱", "桃乐丝最爱"],
     date_created = local_date(2025, 7, 7),
     date_modified = local_date(2026, 10, 12),

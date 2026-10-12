@@ -19,8 +19,8 @@ fn together_two(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result
         let image1 = images[0].circle().resize_fit((200, 200), Fit::Cover);
         let image2 = images[1].circle().resize_fit((200, 200), Fit::Cover);
         canvas.draw_image(&frame, (0, 0), None);
-        canvas.draw_image(&image1, (680, 20), None);
         canvas.draw_image(&image2, (280, 90), None);
+        canvas.draw_image(&image1, (680, 20), None);
         Ok(surface.image_snapshot())
     };
 

@@ -22,7 +22,7 @@ fn kurogames_changli_love(
         let canvas = surface.canvas();
         canvas.clear(Color::TRANSPARENT);
 
-        let image = images[0].circle().resize_fit((108, 90), Fit::Cover);
+        let image = images[0].resize_fit((108, 90), Fit::Cover);
         canvas.draw_image(&image, (115, 194), None);
         canvas.draw_image(&frame, (0, 0), None);
 

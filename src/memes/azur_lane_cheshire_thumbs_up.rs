@@ -12,8 +12,8 @@ use meme_generator_utils::{
 
 use crate::{options::NoOptions, register_meme};
 
-fn azur_lane_cheshire_thumbs_up(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
-    let name = &images[0].name;
+fn azur_lane_cheshire_thumbs_up(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
+    let name = texts.first().unwrap_or(&images[0].name);
     let text = format!("{name},你真是一个大聪明\n柴郡为你点个赞👍🏻");
     let frame = load_image("azur_lane_cheshire_thumbs_up/0.jpg")?;
 
@@ -53,6 +53,8 @@ register_meme!(
     azur_lane_cheshire_thumbs_up,
     min_images = 1,
     max_images = 1,
+    min_texts = 0,
+    max_texts = 1,
     keywords = &["柴郡点赞","柴郡猫点赞"],
     date_created = local_date(2025, 7, 2),
     date_modified = local_date(2025, 7, 2),

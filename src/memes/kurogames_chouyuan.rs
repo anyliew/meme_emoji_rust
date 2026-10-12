@@ -22,8 +22,8 @@ fn kurogames_chouyuan(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> 
             .circle()
             .resize_exact((321, 321));
             
-        canvas.draw_image(&frame, (0, 0), None);
         canvas.draw_image(&img, (94, 95), None);
+        canvas.draw_image(&frame, (0, 0), None);
         
         Ok(surface.image_snapshot())
     };

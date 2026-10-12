@@ -25,9 +25,9 @@ fn shipborne_laser_weapons(images: Vec<InputImage>, _: Vec<String>, _: NoOptions
         let img2 = images[0].resize_fit((73, 73), Fit::Cover);
         
         // 绘制第一个头像，坐标(118, 212)
-        canvas.draw_image(&img1, (118, 212), None);
-        // 绘制第二个头像，坐标(572, 918)
         canvas.draw_image(&img2, (572, 918), None);
+        // 绘制第二个头像，坐标(572, 918)
+        canvas.draw_image(&img1, (118, 212), None);
         // 绘制框架
         canvas.draw_image(&frame, (0, 0), None);
         Ok(surface.image_snapshot())

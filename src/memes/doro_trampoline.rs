@@ -17,7 +17,7 @@ fn doro_trampoline(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Res
         (32, 62), (31, 76), (31, 95), (30, 95), (30, 95),  // 6-10
         (32, 67), (32, 66), (33, 65), (36, 65), (34, 74),  // 11-15
     ];
-    let user_head = images[0].image.circle().resize_exact((77, 77));
+    let user_head = images[0].image.resize_exact((79, 66));
     let func = |i: usize, _images: Vec<Image>| {
         let frame = load_image(format!("doro_trampoline/{i}.png"))?;
         let mut surface = new_surface(frame.dimensions());

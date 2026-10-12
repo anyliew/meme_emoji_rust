@@ -4,7 +4,7 @@ use meme_generator_core::error::Error;
 use meme_generator_utils::{
     builder::InputImage,
     encoder::make_png_or_gif,
-    image::{Fit, ImageExt},
+    image::ImageExt,
     tools::{load_image, local_date, new_surface},
 };
 
@@ -17,7 +17,7 @@ fn begged_me(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Ve
         let mut surface = new_surface(frame.dimensions());
         let canvas = surface.canvas();
         canvas.clear(Color::WHITE);
-        let image = images[0].resize_fit((1720, 1720), Fit::Cover).rotate(15.0);
+        let image = images[0].circle().resize_exact((1720, 1720)).rotate(15.0);
         canvas.draw_image(&image, (125, 655), None);
         canvas.draw_image(&frame, (0, 0), None);
         Ok(surface.image_snapshot())

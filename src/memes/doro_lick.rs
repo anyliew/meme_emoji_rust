@@ -21,7 +21,7 @@ fn doro_lick(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Ve
 
     let func = |i: usize, images: Vec<Image>| {
         let frame = load_image(format!("doro_lick/{i}.png"))?;
-        let user_head = images[0].circle().resize_exact((32, 32));
+        let user_head = images[0].resize_exact((31, 31));
         let mut surface = new_surface(frame.dimensions());
         let canvas = surface.canvas();
         canvas.draw_image(&user_head, params[i], None);

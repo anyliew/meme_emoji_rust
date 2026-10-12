@@ -12,10 +12,10 @@ use meme_generator_utils::{
 
 use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
-fn kurogames_verina_finger(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
+fn kurogames_verina_finger(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let frame = load_image("kurogames_verina_finger/0.png")?;
     
-    let name = &images[0].name;
+    let name = texts.first().unwrap_or(&images[0].name);
     
     let text = format!("维里奈:坏消息,{name}抽卡又歪了\n维里奈:好消息,歪的是我的共鸣链😆😁\n维里奈:哈哈哈😆😁");
 
@@ -51,6 +51,8 @@ register_meme!(
     kurogames_verina_finger,
     min_images = 1,
     max_images = 1,
+    min_texts = 0,
+    max_texts = 1,
     tags = MemeTags::wuthering_waves(),
     keywords = &["维里奈指", "小维指"],
     date_created = local_date(2025, 7, 7),

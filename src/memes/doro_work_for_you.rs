@@ -12,9 +12,9 @@ use meme_generator_utils::{
 
 use crate::{options::NoOptions, register_meme};
 
-fn doro_work_for_you(images: Vec<InputImage>, _texts: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
+fn doro_work_for_you(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let frame = load_image("doro_work_for_you/0.png")?;
-    let name = &images[0].name;
+    let name = texts.first().unwrap_or(&images[0].name);
     let text = format!("{},桃乐丝正在努力为你打工赚钱", name);
 
     let func = |images: Vec<Image>| {
@@ -24,16 +24,16 @@ fn doro_work_for_you(images: Vec<InputImage>, _texts: Vec<String>, _: NoOptions)
         let img = &images[0];
         
         // 第一次粘贴：大小170x170，位置(12, 7)，旋转37.5度
-        let img1 = img.resize_bound((170, 170), Fit::Contain).rotate(-37.5);
-        canvas.draw_image(&img1, (12, 7), None);
+        let img3 = img.resize_bound((35, 35), Fit::Contain).rotate(-35.0);
+        canvas.draw_image(&img3, (60, 450), None);
         
         // 第二次粘贴：大小90x90，位置(313, 130)，旋转-25度
         let img2 = img.resize_bound((90, 90), Fit::Contain).rotate(25.0);
         canvas.draw_image(&img2, (313, 130), None);
         
         // 第三次粘贴：大小35x35，位置(60, 450)，旋转35度
-        let img3 = img.resize_bound((35, 35), Fit::Contain).rotate(-35.0);
-        canvas.draw_image(&img3, (60, 450), None);
+        let img1 = img.resize_bound((170, 170), Fit::Contain).rotate(-37.5);
+        canvas.draw_image(&img1, (12, 7), None);
         
         // 然后绘制frame覆盖在用户图片之上
         canvas.draw_image(&frame, (0, 0), None);

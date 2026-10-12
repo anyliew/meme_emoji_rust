@@ -17,13 +17,13 @@ fn ending(
     let mut surface = new_surface(frame.dimensions());
     let canvas = surface.canvas();
     canvas.draw_image(
-        &images[1].image.circle().resize_exact((284, 284)),
-        (463, 700),
+        &images[0].image.circle().resize_exact((530, 530)),
+        (1516, 880),
         None,
     );
     canvas.draw_image(
-        &images[0].image.circle().resize_exact((530, 530)),
-        (1516, 880),
+        &images[1].image.circle().resize_exact((284, 284)),
+        (463, 700),
         None,
     );
     canvas.draw_image(&frame, (0, 0), None);

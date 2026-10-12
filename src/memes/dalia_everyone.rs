@@ -36,10 +36,10 @@ fn dalia_everyone(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> 
         let canvas = surface.canvas();
         
         // 绘制背景图
-        canvas.draw_image(&frame, (0, 0), None);
         
         // 绘制处理后的用户图片到指定位置
         canvas.draw_image(&img, (611, 387), None);
+        canvas.draw_image(&frame, (0, 0), None);
         
         // 绘制文字
         canvas.draw_text_area_auto_font_size(

@@ -14,10 +14,10 @@ use crate::{options::NoOptions, register_meme};
 
 fn doro_thumbs_up(
     images: Vec<InputImage>,
-    _: Vec<String>,
+    texts: Vec<String>,
     _: NoOptions,
 ) -> Result<Vec<u8>, Error> {
-    let name = &images[0].name;
+    let name = texts.first().unwrap_or(&images[0].name);
     let text = format!("{},你真是一个大聪明\n桃乐丝要为你点个赞👍🏻", name);
     let frame = load_image("doro_thumbs_up/0.jpg")?;
     let mut surface = frame.to_surface();
@@ -48,6 +48,8 @@ register_meme!(
     doro_thumbs_up,
     min_images = 1,
     max_images = 1,
+    min_texts = 0,
+    max_texts = 1,
     keywords = &["doro点赞","Doro点赞","DORO点赞","桃乐丝点赞"],
     date_created = local_date(2025, 7, 2),
     date_modified = local_date(2025, 7, 2),

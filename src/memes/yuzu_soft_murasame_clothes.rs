@@ -14,10 +14,10 @@ use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
 fn yuzu_soft_murasame_clothes(
     images: Vec<InputImage>,
-    _: Vec<String>,
+    texts: Vec<String>,
     _: NoOptions,
 ) -> Result<Vec<u8>, Error> {
-    let name = &images[0].name;
+    let name = texts.first().unwrap_or(&images[0].name);
     let text = format!("{name},你好变态,穿我的衣物");
     let frame = load_image("yuzu_soft_murasame_clothes/0.jpg")?;
 
@@ -55,6 +55,8 @@ register_meme!(
     tags = MemeTags::murasame(),
     min_images = 1,
     max_images = 1,
+    min_texts = 0,
+    max_texts = 1,
     keywords = &["丛雨衣服", "丛雨衣物"],
     date_created = local_date(2025, 3, 24),
     date_modified = local_date(2025, 3, 24),

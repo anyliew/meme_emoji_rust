@@ -12,8 +12,8 @@ use meme_generator_utils::{
 
 use crate::{options::NoOptions, register_meme};
 
-fn allegiance(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
-    let name = &images[0].name;
+fn allegiance(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
+    let name = texts.first().unwrap_or(&images[0].name);
     let text = format!("{name}:{name}向你敬礼,忠诚!\n{name}:{name}당신에게 경의를 표합니다,충성!");
     let frame = load_image("allegiance/0.png")?;
 
@@ -53,6 +53,8 @@ register_meme!(
     allegiance,
     min_images = 1,
     max_images = 1,
+    min_texts = 0,
+    max_texts = 1,
     keywords = &["충성","忠橙","敬礼"],
     date_created = local_date(2025, 8, 16),
     date_modified = local_date(2026, 10, 12),

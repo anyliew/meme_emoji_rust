@@ -20,14 +20,14 @@ fn commemorate(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<
         
         // 调整图片尺寸，保持宽高比
         let img = images[0]
-            .resize_fit((815, 747), Fit::Contain);
+            .resize_fit((815, 747), Fit::Cover);
             
         // 转换为灰度（黑白滤镜）- 简化处理，使用原图
         // 因为skia的灰度转换比较复杂，这里直接使用原图
         // 如果需要黑白效果，可以考虑其他方法
         
-        canvas.draw_image(&frame, (0, 0), None);
         canvas.draw_image(&img, (129, 218), None);
+        canvas.draw_image(&frame, (0, 0), None);
         
         Ok(surface.image_snapshot())
     };

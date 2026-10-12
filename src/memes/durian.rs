@@ -4,7 +4,7 @@ use meme_generator_core::error::Error;
 use meme_generator_utils::{
     builder::InputImage,
     encoder::make_png_or_gif,
-    image::{Fit, ImageExt},
+    image::ImageExt,
     tools::{load_image, local_date, new_surface},
 };
 
@@ -17,8 +17,8 @@ fn durian(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u
         let mut surface = new_surface(frame.dimensions());
         let canvas = surface.canvas();
         canvas.clear(Color::WHITE);
-        let image = images[0].resize_fit((412, 322), Fit::Cover);
-        canvas.draw_image(&image, (276, 516), None);
+        let image = images[0].circle().resize_exact((475, 475)).rotate(10.0);
+        canvas.draw_image(&image, (200, 425), None);
         canvas.draw_image(&frame, (0, 0), None);
         Ok(surface.image_snapshot())
     };

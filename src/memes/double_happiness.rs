@@ -19,9 +19,9 @@ fn double_happiness(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Re
         canvas.clear(Color::WHITE);
         let img1 = images[1].circle().resize_exact((522, 522));
         let img0 = images[0].circle().resize_exact((536, 536));
+        canvas.draw_image(&frame, (0, 0), None);
         canvas.draw_image(&img1, (1206, 138), None);
         canvas.draw_image(&img0, (532, 332), None);
-        canvas.draw_image(&frame, (0, 0), None);
         Ok(surface.image_snapshot())
     };
 

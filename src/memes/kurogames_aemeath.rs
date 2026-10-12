@@ -22,8 +22,8 @@ fn kurogames_aemeath(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> R
             .circle()
             .resize_exact((338, 338));
             
-        canvas.draw_image(&frame, (0, 0), None);
         canvas.draw_image(&img, (87, 87), None);
+        canvas.draw_image(&frame, (0, 0), None);
         
         Ok(surface.image_snapshot())
     };

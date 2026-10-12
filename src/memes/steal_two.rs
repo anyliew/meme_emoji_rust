@@ -17,8 +17,8 @@ fn steal_two(
     let mut surface = new_surface(frame.dimensions());
     let canvas = surface.canvas();
     canvas.draw_image(
-        &images[0].image.circle().resize_exact((131, 131)),
-        (253, 78),
+        &images[2].image.circle().resize_exact((125, 125)),
+        (532, 387),
         None,
     );
     canvas.draw_image(
@@ -27,8 +27,8 @@ fn steal_two(
         None,
     );
     canvas.draw_image(
-        &images[2].image.circle().resize_exact((125, 125)),
-        (532, 387),
+        &images[0].image.circle().resize_exact((131, 131)),
+        (253, 78),
         None,
     );
     canvas.draw_image(&frame, (0, 0), None);

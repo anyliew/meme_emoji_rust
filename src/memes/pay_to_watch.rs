@@ -12,10 +12,10 @@ use meme_generator_utils::{
 
 use crate::{options::NoOptions, register_meme};
 
-fn pay_to_watch(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
+fn pay_to_watch(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let frame = load_image("pay_to_watch/0.png")?;
     
-    let name = &images[0].name;
+    let name = texts.first().unwrap_or(&images[0].name);
     
     let text = format!("男主:旁边怎么有人傻乎乎站在那里？\n女主:{name}付钱让他站在那付费观看的");
 
@@ -55,6 +55,8 @@ register_meme!(
     pay_to_watch,
     min_images = 1,
     max_images = 1,
+    min_texts = 0,
+    max_texts = 1,
     keywords = &["付费观看"],
     date_created = local_date(2025, 7, 2),
     date_modified = local_date(2026, 10, 12),

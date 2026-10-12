@@ -14,10 +14,10 @@ use crate::{options::NoOptions, register_meme};
 
 fn spend_christmas(
     images: Vec<InputImage>,
-    _: Vec<String>,
+    texts: Vec<String>,
     _: NoOptions,
 ) -> Result<Vec<u8>, Error> {
-    let name = &images[0].name;
+    let name = texts.first().unwrap_or(&images[0].name);
     let text = format!("{name}，我们一起过圣诞");
     let frame = load_image("spend_christmas/0.png")?;
     let mut surface = frame.to_surface();
@@ -52,6 +52,8 @@ register_meme!(
     spend_christmas,
     min_images = 1,
     max_images = 1,
+    min_texts = 0,
+    max_texts = 1,
     keywords = &["一起圣诞"],
     date_created = local_date(2024, 12, 21),
     date_modified = local_date(2026, 10, 12),

@@ -32,11 +32,11 @@ fn throwing_poop(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Resul
         let rotated_img3 = img3.rotate(-20.0);
         
         // 绘制第一个头像，坐标(347, 201)
-        canvas.draw_image(&img1, (347, 201), None);
+        canvas.draw_image(&rotated_img3, (297, 1003), None);
         // 绘制第二个头像，坐标(310, 553)
         canvas.draw_image(&rotated_img2, (310, 553), None);
         // 绘制第三个头像，坐标(297, 1003)
-        canvas.draw_image(&rotated_img3, (297, 1003), None);
+        canvas.draw_image(&img1, (347, 201), None);
         // 绘制框架
         canvas.draw_image(&frame, (0, 0), None);
         Ok(surface.image_snapshot())

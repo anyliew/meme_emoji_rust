@@ -4,7 +4,7 @@ use meme_generator_core::error::Error;
 use meme_generator_utils::{
     builder::InputImage,
     encoder::make_png_or_gif,
-    image::{Fit, ImageExt},
+    image::ImageExt,
     tools::{load_image, local_date, new_surface},
 };
 
@@ -19,12 +19,12 @@ fn ly01(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>
         canvas.clear(Color::WHITE);
         
         // 处理第二张图片 (images[1]) - 位置 (933, 251)，大小 235x235
-        let img1 = images[1].resize_fit((235, 235), Fit::Cover);
-        canvas.draw_image(&img1, (933, 251), None);
+        let img0 = images[0].circle().resize_exact((235, 235));
+        canvas.draw_image(&img0, (272, 243), None);
         
         // 处理第一张图片 (images[0]) - 位置 (272, 243)，大小 235x235
-        let img0 = images[0].resize_fit((235, 235), Fit::Cover);
-        canvas.draw_image(&img0, (272, 243), None);
+        let img1 = images[1].circle().resize_exact((235, 235));
+        canvas.draw_image(&img1, (933, 251), None);
         
         // 最后绘制背景帧
         canvas.draw_image(&frame, (0, 0), None);

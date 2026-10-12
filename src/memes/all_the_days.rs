@@ -4,7 +4,7 @@ use meme_generator_core::error::Error;
 use meme_generator_utils::{
     builder::InputImage,
     encoder::make_png_or_gif,
-    image::{Fit, ImageExt},
+    image::ImageExt,
     tools::{load_image, local_date},
 };
 
@@ -21,8 +21,8 @@ fn all_the_days(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result
     canvas.draw_image(&frame, (0, 0), None);
     
     // 处理图片
-    let image1 = images[0].circle().resize_fit((95, 95), Fit::Cover).circle();
-    let image2 = images[1].circle().resize_fit((95, 95), Fit::Cover).circle();
+    let image1 = images[0].circle().resize_exact((95, 95));
+    let image2 = images[1].circle().resize_exact((95, 95));
     
     // 最后绘制图片（在最高层）
     canvas.draw_image(&image1, (255, 255), None);

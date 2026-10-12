@@ -22,9 +22,9 @@ fn swimsuit_group_photo(
         let canvas = surface.canvas();
         let image1 = images[0].circle().resize_fit((480, 480), Fit::Cover);
         let image2 = images[1].circle().resize_fit((480, 480), Fit::Cover);
+        canvas.draw_image(&frame, (0, 0), None);
         canvas.draw_image(&image1, (1695, 151), None);
         canvas.draw_image(&image2, (695, 161), None);
-        canvas.draw_image(&frame, (0, 0), None);
         Ok(surface.image_snapshot())
     };
 

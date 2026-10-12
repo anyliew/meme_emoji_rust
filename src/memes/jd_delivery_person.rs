@@ -5,16 +5,16 @@ use meme_generator_utils::{
     builder::InputImage,
     canvas::CanvasExt,
     encoder::make_png_or_gif,
-    image::{Fit, ImageExt},
+    image::ImageExt,
     text_params,
     tools::{load_image, local_date, new_paint},
 };
 
 use crate::{options::NoOptions, register_meme};
 
-fn jd_delivery_person(images: Vec<InputImage>, _texts: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
+fn jd_delivery_person(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let frame = load_image("jd_delivery_person/0.png")?;
-    let name = images[0].name.clone(); // 克隆name而不是借用
+    let name = texts.first().cloned().unwrap_or_else(|| images[0].name.clone()); // 克隆name而不是借用
     
     let func = |images: Vec<Image>| {
         let mut surface = frame.to_surface();
@@ -23,7 +23,7 @@ fn jd_delivery_person(images: Vec<InputImage>, _texts: Vec<String>, _: NoOptions
         let img = &images[0];
         
         // 先绘制用户图片在最底层
-        let darkened_img = img.resize_bound((630, 630), Fit::Cover);
+        let darkened_img = img.circle().resize_exact((630, 630)).brightness(0.8);
         let user_img = darkened_img.rotate(20.0);
         canvas.draw_image(&user_img, (420, 1000), None);
         

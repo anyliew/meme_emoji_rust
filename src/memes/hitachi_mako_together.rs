@@ -14,10 +14,10 @@ use crate::{options::NoOptions, register_meme};
 
 fn hitachi_mako_together(
     images: Vec<InputImage>,
-    _: Vec<String>,
+    texts: Vec<String>,
     _: NoOptions,
 ) -> Result<Vec<u8>, Error> {
-    let name = &images[0].name;
+    let name = texts.first().unwrap_or(&images[0].name);
     let text = format!("{name}：我要和四季夏目永远在一起");
     let frame = load_image("hitachi_mako_together/0.png")?;
     let mut surface = frame.to_surface();
@@ -57,6 +57,8 @@ register_meme!(
     hitachi_mako_together,
     min_images = 1,
     max_images = 1,
+    min_texts = 0,
+    max_texts = 1,
     keywords = &["和她在一起"],
     date_created = local_date(2024, 7, 26),
     date_modified = local_date(2024, 7, 26),

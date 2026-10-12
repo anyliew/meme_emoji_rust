@@ -22,8 +22,8 @@ fn kurogames_brqd(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Resu
             .circle()
             .resize_exact((350, 350));
             
-        canvas.draw_image(&frame, (0, 0), None);
         canvas.draw_image(&img, (82, 94), None);
+        canvas.draw_image(&frame, (0, 0), None);
         
         Ok(surface.image_snapshot())
     };

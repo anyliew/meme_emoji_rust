@@ -22,8 +22,8 @@ fn kurogames_cartethyia(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -
             .circle()
             .resize_exact((222, 222));
             
-        canvas.draw_image(&frame, (0, 0), None);
         canvas.draw_image(&img, (105, 94), None);
+        canvas.draw_image(&frame, (0, 0), None);
         
         Ok(surface.image_snapshot())
     };

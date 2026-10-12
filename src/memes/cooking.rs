@@ -26,7 +26,7 @@ fn cooking(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<
         (80, 63), (80, 63),  //51-52
     ];
 
-    let user_head = images[0].image.circle().resize_exact((95, 95));
+    let user_head = images[0].image.resize_exact((95, 95));
 
     let func = |i: usize, _: Vec<Image>| {
         let frame = load_image(format!("cooking/{i}.png"))?;

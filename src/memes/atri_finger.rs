@@ -12,8 +12,8 @@ use meme_generator_utils::{
 
 use crate::{options::NoOptions, register_meme, tags::MemeTags};
 
-fn atri_finger(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
-    let name = &images[0].name;
+fn atri_finger(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
+    let name = texts.first().unwrap_or(&images[0].name);
     let text = format!("{name},你和夏先生一样笨得可爱");
     let frame = load_image("atri_finger/0.jpg")?;
     let mut surface = frame.to_surface();
@@ -47,6 +47,8 @@ register_meme!(
     atri_finger,
     min_images = 1,
     max_images = 1,
+    min_texts = 0,
+    max_texts = 1,
     tags = MemeTags::atri(),
     keywords = &["亚托莉指"],
     date_created = local_date(2025, 3, 24),

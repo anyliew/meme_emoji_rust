@@ -22,8 +22,8 @@ fn kurogames_kkc(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Resul
             .circle()
             .resize_exact((168, 168));
             
-        canvas.draw_image(&frame, (0, 0), None);
         canvas.draw_image(&img, (45, 43), None);
+        canvas.draw_image(&frame, (0, 0), None);
         
         Ok(surface.image_snapshot())
     };

@@ -17,7 +17,7 @@ fn xiluo_disgust(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Resul
         let mut surface = new_surface(frame.dimensions());
         let canvas = surface.canvas();
         canvas.clear(Color::WHITE);
-        let img = images[0].resize_fit((500, 800), Fit::Cover).rotate(8.0);
+        let img = images[0].resize_fit((500, 800), Fit::Cover).rotate(-8.0);
         canvas.draw_image(&img, (0, 75), None);
         canvas.draw_image(&frame, (0, 0), None);
         Ok(surface.image_snapshot())
