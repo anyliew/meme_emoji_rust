@@ -10,7 +10,7 @@ use meme_generator_utils::{
 
 use crate::{options::NoOptions, register_meme};
 
-fn nailoong_perch(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
+fn nailoong_flare(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let positions = [
         (98, 52), (93, 58), (64, 57), (61, 55), (53, 46),
         (45, 38), (46, 39), (50, 40), (62, 40), (74, 36),
@@ -32,7 +32,7 @@ fn nailoong_perch(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Resu
         (63, 63), (63, 63), (63, 63),
     ];
     let func = |i: usize, images: Vec<Image>| {
-        let frame = load_image(format!("nailoong_perch/{i}.png"))?;
+        let frame = load_image(format!("nailoong_flare/{i}.png"))?;
         let user_head = images[0].resize_exact(sizes[i]);
         let mut surface = new_surface(frame.dimensions());
         let canvas = surface.canvas();
@@ -52,11 +52,11 @@ fn nailoong_perch(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Resu
 }
 
 register_meme!(
-    "nailoong_perch",
-    nailoong_perch,
+    "nailoong_flare",
+    nailoong_flare,
     min_images = 1,
     max_images = 1,
-    keywords = &["趴墩"],
+    keywords = &["托马斯", "奶龙托马斯"],
     date_created = local_date(2026, 10, 12),
-    date_modified = local_date(2026, 10, 12),
+    date_modified = local_date(2026, 10, 14),
 );
