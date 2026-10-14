@@ -83,7 +83,6 @@ mod error3b;
 mod estrous;
 mod family_know;
 mod fart;
-mod fbi_photo;
 mod fever;
 mod finger;
 mod fireworks_head;
