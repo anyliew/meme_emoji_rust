@@ -232,6 +232,11 @@ jobs:
       contents: write
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
       - name: Download all artifacts
         uses: actions/download-artifact@v8
         with:
@@ -242,45 +247,129 @@ jobs:
           echo "📂 Downloaded artifacts:"
           find artifacts -type f | sort
 
-      - name: Generate custom appendix and save to file
-        id: custom
+      - name: Generate release notes
+        id: notes
         run: |
+          TAG="${{ needs.generate_version.outputs.tag }}"
+          VERSION="${{ needs.generate_version.outputs.version }}"
+          REPO="${{ github.repository }}"
+          REPO_NAME="${REPO##*/}"
           SGT=$(TZ=Asia/Singapore date '+%Y-%m-%d %H:%M:%S' 2>/dev/null || TZ=UTC-8 date '+%Y-%m-%d %H:%M:%S')
+          TAG_URL=$(printf '%s' "$TAG" | sed 's/+/%2B/g')
 
-          # 动态生成文件列表，与 build 矩阵自动保持一致
-          FILE_LIST=""
+          git fetch --tags --force || true
+
+          # 上一版本 tag（按创建时间倒序取第二个）
+          PREV_TAG=$(git tag --sort=-creatordate | grep -v -x "$TAG" | head -1 || true)
+
+          # 提交清单
+          if [ -n "$PREV_TAG" ]; then
+            COMMITS=$(git log --pretty=format:'- %s (%h)' "${PREV_TAG}..HEAD")
+          else
+            COMMITS=$(git log --pretty=format:'- %s (%h)' -n 20)
+          fi
+          COUNT=$(printf '%s\n' "$COMMITS" | grep -c '^- ' || true)
+          if [ "$COUNT" -eq 0 ]; then
+            printf '%s\n' "- 无新增提交" > /tmp/commits.md
+          elif [ "$COUNT" -gt 30 ]; then
+            {
+              printf '<details>\n<summary>共 %s 条提交</summary>\n\n' "$COUNT"
+              printf '%s\n' "$COMMITS"
+              printf '\n</details>\n'
+            } > /tmp/commits.md
+          else
+            printf '%s\n' "$COMMITS" > /tmp/commits.md
+          fi
+
+          # 扫描产物，按 label + rust 版本归类
+          declare -A FILES
+          LABELS=""
           for f in $(find artifacts -type f | sort); do
             base=$(basename "$f")
-            case "$base" in
-              *windows-x86_64*) desc="Windows 动态链接库" ;;
-              *macos-x86_64*) desc="macOS Intel 动态库" ;;
-              *macos-aarch64*) desc="macOS Apple Silicon 动态库" ;;
-              *linux-x86_64*) desc="Linux x86_64 动态库" ;;
-              *linux-aarch64*) desc="Linux ARM64 动态库" ;;
-              *android-aarch64*) desc="Android ARM64 动态库" ;;
-              *) desc="动态库" ;;
+            stem="${base%.*}"
+            rust="${stem##*-}"
+            label="${stem%-*}"
+            label="${label#${REPO_NAME}-}"
+            case "$rust" in
+              stable|1.93.1) ;;
+              *) continue ;;
             esac
-            FILE_LIST="${FILE_LIST}- \`${base}\` - ${desc}"$'\n'
+            FILES["${label}|${rust}"]="$base"
+            case " ${LABELS} " in
+              *" ${label} "*) ;;
+              *) LABELS="${LABELS} ${label}" ;;
+            esac
           done
 
-          APPENDIX=$(cat <<EOF
+          # 固定展示顺序，未列出的 label 追加在末尾
+          ORDER="windows-x86_64 macos-x86_64 macos-aarch64 linux-x86_64 linux-aarch64 android-aarch64"
+          ORDERED=""
+          for l in ${ORDER}; do
+            case " ${LABELS} " in *" ${l} "*) ORDERED="${ORDERED} ${l}" ;; esac
+          done
+          for l in ${LABELS}; do
+            case " ${ORDERED} " in *" ${l} "*) ;; *) ORDERED="${ORDERED} ${l}" ;; esac
+          done
 
-          ## 🚀 构建信息
-          - **版本**: \`${{ needs.generate_version.outputs.version }}\`
-          - **发布时间**: ${SGT}（SGT，UTC+8）
+          display_name() {
+            case "$1" in
+              windows-x86_64) echo "Windows x64" ;;
+              macos-x86_64) echo "macOS Intel" ;;
+              macos-aarch64) echo "macOS Apple Silicon" ;;
+              linux-x86_64) echo "Linux x64" ;;
+              linux-aarch64) echo "Linux ARM64" ;;
+              android-aarch64) echo "Android ARM64" ;;
+              *) echo "$1" ;;
+            esac
+          }
 
-          这是一个自动构建的 Release，包含以下平台的动态库：
+          # 下载表格（文件名自动跟随构建矩阵）
+          TABLE="| 平台 | stable | 1.93.1 |\n| --- | --- | --- |\n"
+          for l in ${ORDERED}; do
+            cell_s="${FILES[${l}|stable]:-}"
+            cell_o="${FILES[${l}|1.93.1]:-}"
+            if [ -n "$cell_s" ]; then
+              cell_s="[${cell_s}](https://github.com/${REPO}/releases/download/${TAG_URL}/${cell_s})"
+            else
+              cell_s="—"
+            fi
+            if [ -n "$cell_o" ]; then
+              cell_o="[${cell_o}](https://github.com/${REPO}/releases/download/${TAG_URL}/${cell_o})"
+            else
+              cell_o="—"
+            fi
+            TABLE="${TABLE}| $(display_name "$l") | ${cell_s} | ${cell_o} |\n"
+          done
 
-          ## 📦 文件列表
-          ${FILE_LIST}
-          ## 🔍 版本说明
-          版本号格式: \`{Cargo版本}+build.{构建号}\`
-          - 构建号基于 Git 提交次数自动生成，仅为构建序号，不参与版本比较
-          - 符合语义化版本规范 (SemVer)
+          # 完整差异链接
+          if [ -n "$PREV_TAG" ]; then
+            PREV_URL=$(printf '%s' "$PREV_TAG" | sed 's/+/%2B/g')
+            DIFF="查看 [${PREV_TAG} → ${TAG}](https://github.com/${REPO}/compare/${PREV_URL}...${TAG_URL}) 的完整差异"
+          else
+            DIFF="首次发布，暂无上一版本可对比"
+          fi
 
-          EOF
-          )
-          echo "$APPENDIX" > /tmp/appendix.txt
+          {
+            echo "## 选择下载"
+            echo
+            echo "按你的 meme-generator 主程序编译时所用的 Rust 版本选择对应一列。"
+            echo
+            printf '%b' "${TABLE}"
+            echo "## 本次更新"
+            echo
+            cat /tmp/commits.md
+            echo
+            echo "${DIFF}"
+            echo
+            echo "## 构建信息"
+            echo
+            echo "- 版本: \`${VERSION}\`"
+            echo "- 发布时间: ${SGT}（SGT，UTC+8）"
+            echo "- 版本号格式: \`{Cargo版本}+build.{构建号}\`，构建号基于 Git 提交次数自动生成"
+          } > /tmp/release_body.md
+
+          echo "📝 Release body:"
+          cat /tmp/release_body.md
 
       - name: Display version info
         run: |
@@ -288,7 +377,7 @@ jobs:
           echo "   Version: ${{ needs.generate_version.outputs.version }}"
           echo "   Tag: ${{ needs.generate_version.outputs.tag }}"
 
-      - name: Create Release (auto-generated notes)
+      - name: Create Release
         id: create_release
         uses: softprops/action-gh-release@v3
         with:
@@ -296,7 +385,8 @@ jobs:
           name: Release ${{ needs.generate_version.outputs.version }}
           draft: false
           prerelease: false
-          generate_release_notes: true
+          generate_release_notes: false
+          body_path: /tmp/release_body.md
           files: |
             artifacts/**/meme-emoji-windows-x86_64-*.*
             artifacts/**/meme-emoji-macos-x86_64-*.*
@@ -304,32 +394,3 @@ jobs:
             artifacts/**/meme-emoji-linux-x86_64-*.*
             artifacts/**/meme-emoji-linux-aarch64-*.*
             artifacts/**/meme-emoji-android-aarch64-*.*
-
-      - name: Update Release with custom body (Chinese title + Rust info)
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          TAG="${{ needs.generate_version.outputs.tag }}"
-          REPO="${{ github.repository }}"
-
-          # 获取自动生成的 body
-          ORIGINAL_BODY=$(gh release view "$TAG" --repo "$REPO" --json body -q .body)
-
-          # 替换标题为中文
-          MODIFIED_BODY=$(echo "$ORIGINAL_BODY" | sed 's/^## What'\''s Changed$/## 变更内容/')
-
-          if [ "$MODIFIED_BODY" = "$ORIGINAL_BODY" ]; then
-            echo "⚠️ 未找到 '## What's Changed'，保持原标题"
-          else
-            echo "✅ 已将标题替换为中文"
-          fi
-
-          # 读取附录并组合
-          APPENDIX=$(cat /tmp/appendix.txt)
-          FINAL_BODY="${MODIFIED_BODY}${APPENDIX}"
-
-          # 将最终内容写入临时文件，用 --notes-file 更新（避免 --body 参数不识别）
-          echo "$FINAL_BODY" > /tmp/final_body.txt
-          gh release edit "$TAG" --repo "$REPO" --notes-file /tmp/final_body.txt
-
-          echo "✅ Release body 更新完成"
