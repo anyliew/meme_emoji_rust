@@ -17,6 +17,7 @@ inventory = "0.3"
 serde = "1.0"
 skia-safe = { version = "0.93", features = ["textlayout"] }
 rand = "0.10.2"
+chrono = "0.4"
 
 meme_generator_core = "0.0.5"
 meme_generator_utils = "0.0.9"
